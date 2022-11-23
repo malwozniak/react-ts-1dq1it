@@ -4,19 +4,19 @@ import Loader from 'react-loader-spinner';
 import AnimationProfile from './AnimationProfile';
 import AnimationTypes from './AnimationTypes';
 import { device } from '../../device';
-import { Animation } from '../types/Animation';
+import { Animation } from '../types/animation';
 
 type AnimationCardProps = {
-  Animation: Animation;
+  animation: Animation;
 };
 
-function AnimationCard({ Animation }: AnimationCardProps) {
+function AnimationCard({ animation }: AnimationCardProps) {
   const [AnimationDescription, setAnimationDescription] = useState<string>('');
   const [isReady, setIsReady] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchAnimationSpecies = async () => {
-      const result = await fetch(Animation.species.url);
+      const result = await fetch(animation.species.url);
       return await result.json();
     };
 
@@ -39,10 +39,11 @@ function AnimationCard({ Animation }: AnimationCardProps) {
           <AnimationTypes types={Animation.types} />
           <DoubleColumnCard>
             <AnimationProfile
-              Animation={Animation}
+              animation={Animation}
               description={AnimationDescription}
             />
           </DoubleColumnCard>
+          <AnimationDescription>{AnimationDescription}</AnimationDescription>
         </div>
       )}
       {!isReady && (
