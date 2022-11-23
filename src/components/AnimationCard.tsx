@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Loader from 'react-loader-spinner';
-
 import AnimationProfile from './AnimationProfile';
 import AnimationTypes from './AnimationTypes';
 import { device } from '../../device';
@@ -14,7 +13,7 @@ type AnimationCardProps = {
 function AnimationCard({ Animation }: AnimationCardProps) {
   const [AnimationDescription, setAnimationDescription] = useState<string>('');
   const [isReady, setIsReady] = useState<boolean>(false);
- 
+
   useEffect(() => {
     const fetchAnimationSpecies = async () => {
       const result = await fetch(Animation.species.url);
@@ -29,7 +28,7 @@ function AnimationCard({ Animation }: AnimationCardProps) {
         .flavor_text.replace(/[^a-zA-Z é . , ']/g, ' ');
       setAnimationDescription(description);
       setIsReady(true);
-    });-
+    });
   }, []);
 
   return (
