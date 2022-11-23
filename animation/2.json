@@ -7,7 +7,7 @@
   "order": 1,
   "species": {
     "name": "animation CSS 2s",
-    "url": "https://react-ts-1dq1it.stackblitz.ioo/animation/2.json"
+    "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/type/1.json"
   },
   "sprites": {
     "front_default": ""
@@ -18,14 +18,14 @@
       "slot": 1,
       "type": {
         "name": "grass",
-        "url": "https://react-ts-1dq1it.stackblitz.ioo/type/"
+        "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/type/1.json"
       }
     },
     {
       "slot": 2,
       "type": {
         "name": "poison",
-        "url": "https://react-ts-1dq1it.stackblitz.ioo/type/"
+        "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/type/1.json"
       }
     }
   ]
