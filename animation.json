@@ -5,15 +5,15 @@
   "results": [
     {
       "name": "animation CSS static",
-      "url": "https://react-ts-1dq1it.stackblitz.ioo/1/"
+      "url": "https://react-ts-1dq1it.stackblitz.ioo/animation/1.json"
     },
     {
       "name": "animation CSS 2s",
-      "url": "https://react-ts-1dq1it.stackblitz.ioo/2/"
+      "url": "https://react-ts-1dq1it.stackblitz.ioo/animation/2.json"
     },
     {
       "name": "animation CSS 4s",
-      "url": "https://react-ts-1dq1it.stackblitz.ioo/3/"
+      "url": "https://react-ts-1dq1it.stackblitz.ioo/animation/3.json"
     },
     {
       "name": "animation CSS 8s",
