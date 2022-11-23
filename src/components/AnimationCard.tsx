@@ -11,13 +11,15 @@ type AnimationCardProps = {
 };
 
 function AnimationCard({ animation }: AnimationCardProps) {
-  const [AnimationDescription, setAnimationDescription] = useState<string>('');
+  const [animationDescription, setAnimationDescription] = useState<string>('');
   const [isReady, setIsReady] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchAnimationSpecies = async () => {
       const result = await fetch(animation.species.url);
+      console.log(animation.species.url);
       return await result.json();
+      
     };
 
     fetchAnimationSpecies().then((data) => {
@@ -35,15 +37,15 @@ function AnimationCard({ animation }: AnimationCardProps) {
     <AnimationCardContainer>
       {isReady && (
         <div>
-          <AnimationCardTitle>{Animation.name}</AnimationCardTitle>
-          <AnimationTypes types={Animation.types} />
+          <AnimationCardTitle>{animation.name}</AnimationCardTitle>
+          <AnimationTypes types={animation.types} />
           <DoubleColumnCard>
             <AnimationProfile
-              animation={Animation}
-              description={AnimationDescription}
+              animation={animation}
+              description={animationDescription}
             />
           </DoubleColumnCard>
-          <AnimationDescription>{AnimationDescription}</AnimationDescription>
+          <AnimationDescription>{animationDescription}</AnimationDescription>
         </div>
       )}
       {!isReady && (

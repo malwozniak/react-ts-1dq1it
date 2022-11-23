@@ -1,47 +1,47 @@
 {
   "count": 1154,
-  "next": "https://react-ts-1dq1it.stackblitz.ioo/animation/?offset=20&limit=20",
+  "next": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/?offset=20&limit=20",
   "previous": null,
   "results": [
     {
       "name": "animation CSS static",
-      "url": "https://react-ts-1dq1it.stackblitz.ioo/animation/1.json"
+      "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/1.json"
     },
     {
       "name": "animation CSS 2s",
-      "url": "https://react-ts-1dq1it.stackblitz.ioo/animation/2.json"
+      "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/2.json"
     },
     {
       "name": "animation CSS 4s",
-      "url": "https://react-ts-1dq1it.stackblitz.ioo/animation/3.json"
+      "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/3.json"
     },
     {
       "name": "animation CSS 8s",
-      "url": "https://react-ts-1dq1it.stackblitz.ioo/animation/4.json"
+      "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/4.json"
     },
     {
       "name": "animation CSS 12s",
-      "url": "https://react-ts-1dq1it.stackblitz.ioo/animation/5.json"
+      "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/5.json"
     },
     {
       "name": "animation Three.js static",
-      "url": "https://react-ts-1dq1it.stackblitz.ioo/animation/6.json"
+      "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/6.json"
     },
     {
       "name": "animation Three.js 2s",
-      "url": "https://react-ts-1dq1it.stackblitz.ioo/animation/7.json"
+      "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/7.json"
     },
     {
       "name": "animation Three.js 4s",
-      "url": "https://react-ts-1dq1it.stackblitz.ioo/animation/8.json"
+      "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/8.json"
     },
     {
       "name": "animation Three.js 8s",
-      "url": "https://react-ts-1dq1it.stackblitz.ioo/animation/9.json"
+      "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/9.json"
     },
     {
       "name": "animation Three.js 12s",
-      "url": "https://react-ts-1dq1it.stackblitz.ioo/animation/10.json"
+      "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/10.json"
     }
   ]
 }
