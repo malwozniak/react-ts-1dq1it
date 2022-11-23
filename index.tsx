@@ -26,7 +26,7 @@ class App extends Component<AppProps, AppState> {
   }
 
   apiBasePath =
-    'https://raw.githubusercontent.com/malwozniak/react-ts-animation/main/animation.json';
+    'https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation.json';
 
   async fetchRandomAnimation() {
     const apiCall = await fetch(this.apiBasePath);
