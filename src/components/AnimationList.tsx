@@ -1,6 +1,5 @@
 import React from 'react';
 import Loader from 'react-loader-spinner';
-
 import { Animation } from '../types/animation';
 
 type AnimationListProps = {
@@ -48,7 +47,7 @@ class AnimationList extends React.Component<
 
   componentDidMount() {
     document.addEventListener('scroll', this.trackScrolling);
-    this.fetchListData();
+    this.fetchAnimationListData();
   }
 
   fetchAnimationListData() {
@@ -95,17 +94,6 @@ class AnimationList extends React.Component<
     return (
       <div className="container">
         <div className="row">
-          <div className="my-4 p-0">
-            <input
-              onChange={this.handleSearch}
-              value={this.state.searchTerm}
-              className="form-control"
-              type="text"
-              placeholder="Search"
-              aria-label="Search"
-            />
-          </div>
-
           {this.getAnimationDataList().map((item, index) => {
             return (
               <div
@@ -120,18 +108,6 @@ class AnimationList extends React.Component<
               </div>
             );
           })}
-
-          {this.state.loading && (
-            <div className="d-flex justify-content-center mb-4">
-              <Loader
-                type="Puff"
-                color="#CCC"
-                height={100}
-                width={100}
-                timeout={3000}
-              />
-            </div>
-          )}
         </div>
       </div>
     );

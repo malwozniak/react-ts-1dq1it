@@ -1,8 +1,7 @@
 export interface Animation {
   id: number;
   name: string;
-  height: number;
-  weight: number;
+  time: number;
   sprites: AnimationSprites;
   species: AnimationSpecies;
   types: AnimationTypeItem[];

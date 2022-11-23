@@ -15,8 +15,7 @@ function AnimationProfile({ animation, description }: AnimationProfileProps) {
     <Profile>
       <img width="140" src={animation.sprites.front_default} />
       <Attrs>
-        <div>Height: {animation.height / 10}</div>
-        <div>Weight: {animation.weight / 10}</div>
+        <div>Time: {animation.time / 10} s</div>
       </Attrs>
     </Profile>
   );
