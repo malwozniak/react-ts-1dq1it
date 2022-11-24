@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import Loader from 'react-loader-spinner';
 import AnimationProfile from './AnimationProfile';
 import AnimationTypes from './AnimationTypes';
 import { device } from '../../device';
@@ -19,7 +18,6 @@ function AnimationCard({ animation }: AnimationCardProps) {
       const result = await fetch(animation.species.url);
       console.log(animation.species.url);
       return await result.json();
-      
     };
 
     fetchAnimationSpecies().then((data) => {
@@ -46,17 +44,6 @@ function AnimationCard({ animation }: AnimationCardProps) {
             />
           </DoubleColumnCard>
           <AnimationDescription>{animationDescription}</AnimationDescription>
-        </div>
-      )}
-      {!isReady && (
-        <div className="d-flex justify-content-center mb-4">
-          <Loader
-            type="Puff"
-            color="#CCC"
-            height={100}
-            width={100}
-            timeout={3000}
-          />
         </div>
       )}
     </AnimationCardContainer>
