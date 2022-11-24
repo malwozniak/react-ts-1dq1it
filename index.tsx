@@ -30,16 +30,9 @@ class App extends Component<AppProps, AppState> {
 
   async fetchRandomAnimation() {
     const apiCall = await fetch(this.apiBasePath);
-
     const data = await apiCall.json();
-    fetch(data)
-      .then((res) => res.json())
-      .then((dataa) => {
-        console.log('is working');
-      })
-      .catch((rejected) => {
-        console.log(rejected);
-      });
+    fetch(data).then((res) => res.json());
+
     console.log(data);
 
     this.setState((state, props) => {

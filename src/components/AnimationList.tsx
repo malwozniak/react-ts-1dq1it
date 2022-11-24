@@ -1,10 +1,8 @@
 import React from 'react';
-import Loader from 'react-loader-spinner';
 import { Animation } from '../types/animation';
 
 type AnimationListProps = {
   onItemClick: (item: any) => void;
-  scrollable: boolean;
 };
 
 type AnimationListState = {
@@ -46,7 +44,6 @@ class AnimationList extends React.Component<
   }
 
   componentDidMount() {
-    document.addEventListener('scroll', this.trackScrolling);
     this.fetchAnimationListData();
   }
 
@@ -66,8 +63,6 @@ class AnimationList extends React.Component<
               nextUrl: data.next,
             };
           });
-
-          document.addEventListener('scroll', this.trackScrolling);
 
           data.results.map((item) => {
             fetch(item.url)
@@ -120,18 +115,6 @@ class AnimationList extends React.Component<
   isBottom(el) {
     return el.getBoundingClientRect().bottom - 10 <= window.innerHeight;
   }
-
-  componentWillUnmount() {
-    document.removeEventListener('scroll', this.trackScrolling);
-  }
-
-  trackScrolling = () => {
-    const wrappedElement = document.getElementsByClassName('container')[0];
-    if (this.isBottom(wrappedElement) && this.props.scrollable === true) {
-      document.removeEventListener('scroll', this.trackScrolling);
-      this.fetchAnimationListData();
-    }
-  };
 }
 
 export default AnimationList;
