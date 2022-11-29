@@ -26,10 +26,12 @@ class App extends Component<AppProps, AppState> {
   }
 
   apiBasePath =
-    'https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/1.json';
+    'https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/';
 
   async fetchRandomAnimation() {
-    const apiCall = await fetch(this.apiBasePath);
+    const apiCall = await fetch(
+      this.apiBasePath + this.generateRandomInteger(1, 3) + '.json'
+    );
     const data = await apiCall.json();
     fetch(data).then((res) => res.json());
 
