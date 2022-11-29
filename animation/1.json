@@ -10,7 +10,7 @@
     "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/type/1.json"
   },
   "sprites": {
-    "front_default": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/804478f6d6b2b2813dfdfd38f64e6207119456e2/images/soon.png"
+    "animaton_base": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/804478f6d6b2b2813dfdfd38f64e6207119456e2/images/soon.png"
   },
   "stats": [],
   "types": [

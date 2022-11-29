@@ -98,7 +98,7 @@ class AnimationList extends React.Component<
               >
                 <h2>{item.name}</h2>
                 <div>
-                  <img src={item.sprites.front_default} />
+                  <img src={item.sprites.animation} />
                 </div>
               </div>
             );
