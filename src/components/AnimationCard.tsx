@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import AnimationProfile from './AnimationProfile';
 import AnimationTypes from './AnimationTypes';
-import { device } from '../../device';
+import { device } from '../device';
 import { Animation } from '../types/animation';
 
 type AnimationCardProps = {

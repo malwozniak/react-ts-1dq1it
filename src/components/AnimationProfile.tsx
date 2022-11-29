@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { device } from '../../device';
+import { device } from '../device';
 import AnimationTypes from './AnimationTypes';
 import { Animation } from '../types/animation';
 
@@ -13,9 +13,9 @@ type AnimationProfileProps = {
 function AnimationProfile({ animation, description }: AnimationProfileProps) {
   return (
     <Profile>
-      <img width="140" src={animation.sprites.front_default} />
+      <img width="200" src={animation.sprites.animaton_base} />
       <Attrs>
-        <div>Time: {animation.time / 10} s</div>
+        <div>Time: {animation.time} s</div>
       </Attrs>
     </Profile>
   );

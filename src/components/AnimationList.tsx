@@ -21,7 +21,7 @@ class AnimationList extends React.Component<
     this.state = {
       AnimationData: [],
       nextUrl:
-        'https://react-ts-1dq1it.stackblitz.io/animation?limit=21&offset=0',
+        'https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/type/1.json',
       loading: false,
       searchTerm: '',
     };
@@ -98,7 +98,7 @@ class AnimationList extends React.Component<
               >
                 <h2>{item.name}</h2>
                 <div>
-                  <img src={item.sprites.animation} />
+                  <img src={item.sprites.front_default} />
                 </div>
               </div>
             );
