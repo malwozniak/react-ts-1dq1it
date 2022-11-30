@@ -1,108 +1,116 @@
 import React from 'react';
-import { Animation } from '../types/animation';
+import Loader from 'react-loader-spinner';
 
-type AnimationListProps = {
+import { Pokemon } from '../types/pokemon';
+
+type PokemonListProps = {
   onItemClick: (item: any) => void;
+  scrollable: boolean;
 };
 
-type AnimationListState = {
-  AnimationData: Animation[];
-  nextUrl: string;
-  loading: boolean;
-  searchTerm: string;
+type PokemonListState = {
+  pokemonData: Pokemon[],
+  nextUrl: string,
+  loading: boolean,
+  searchTerm: string
 };
 
-class AnimationList extends React.Component<
-  AnimationListProps,
-  AnimationListState
-> {
+class PokemonList extends React.Component<PokemonListProps, PokemonListState> {
   constructor(props) {
     super(props);
     this.state = {
-      AnimationData: [],
-      nextUrl:
-        'https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/type/1.json',
+      pokemonData: [],
+      nextUrl: "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation.json",
       loading: false,
-      searchTerm: '',
+      searchTerm: ''
     };
 
     this.handleSearch = this.handleSearch.bind(this);
   }
 
-  getAnimationDataList() {
-    if (this.state.searchTerm != '') {
-      return this.state.AnimationData.filter((animation) => {
-        return (
-          animation.name
-            .toLowerCase()
-            .indexOf(this.state.searchTerm.toLowerCase()) !== -1
-        );
-      });
+  getPokemonDataList() {
+    if(this.state.searchTerm != ''){
+      return this.state.pokemonData.filter((pokemon) => {
+        return pokemon.name.toLowerCase().indexOf(this.state.searchTerm.toLowerCase()) !== -1;
+      })
     }
 
-    return this.state.AnimationData;
+    return this.state.pokemonData;
   }
 
   componentDidMount() {
-    this.fetchAnimationListData();
+    document.addEventListener('scroll', this.trackScrolling);
+    this.fetchPokemonListData();
   }
 
-  fetchAnimationListData() {
+  fetchPokemonListData() {
     this.setState((state, props) => {
       return {
         loading: true,
-      };
+      }
     });
 
     setTimeout(() => {
       fetch(this.state.nextUrl)
-        .then((response) => response.json())
-        .then((data) => {
+      .then(response => response.json())
+      .then(data => {
           this.setState((state, props) => {
             return {
               nextUrl: data.next,
-            };
+            }
           });
 
-          data.results.map((item) => {
+          document.addEventListener('scroll', this.trackScrolling);
+
+          data.results.map(item => {
             fetch(item.url)
-              .then((response) => response.json())
-              .then((data) => {
+            .then(response => response.json())
+            .then(data => {
                 this.setState((state, props) => {
-                  const AnimationData = [...this.state.AnimationData, data];
+                  const pokemonData = [...this.state.pokemonData, data];
                   return {
-                    AnimationData,
+                    pokemonData,
                     loading: false,
-                  };
-                });
-              });
-          });
-        });
+                  }
+                }
+              );
+            });
+          })
+      });  
     }, 1000);
   }
 
   handleSearch(event) {
-    this.setState({ searchTerm: event.target.value });
+    this.setState({searchTerm: event.target.value});
   }
 
   render() {
     return (
       <div className="container">
         <div className="row">
-          {this.getAnimationDataList().map((item, index) => {
-            return (
-              <div
-                onClick={(e) => this.handleItemClick(item, e)}
-                className="col-sm-4 text-center text-capitalize card mb-4 list-item"
-                key={item.name}
-              >
-                <h2>{item.name}</h2>
-                <div>
-                  <img src={item.sprites.front_default} />
+          <div className="my-4 p-0">
+            <input 
+              onChange={this.handleSearch} 
+              value={this.state.searchTerm} 
+              className="form-control" 
+              type="text" 
+              placeholder="Search" 
+              aria-label="Search" 
+            />
+          </div>
+
+          {this.getPokemonDataList().map((item, index) => {
+              return (
+                <div onClick={(e) => this.handleItemClick(item, e) } className="col-sm-4 text-center text-capitalize card mb-4 list-item" key={item.name}>
+                  <h2>{item.name}</h2>
+                  <div> 
+                    <img src={item.sprites.animation_base} />
+                  </div>
                 </div>
-              </div>
-            );
+              )
           })}
+
+        
         </div>
       </div>
     );
@@ -115,6 +123,18 @@ class AnimationList extends React.Component<
   isBottom(el) {
     return el.getBoundingClientRect().bottom - 10 <= window.innerHeight;
   }
+
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.trackScrolling);
+  }
+
+  trackScrolling = () => {
+    const wrappedElement = document.getElementsByClassName('container')[0];
+    if (this.isBottom(wrappedElement) && this.props.scrollable === true) {
+      document.removeEventListener('scroll', this.trackScrolling);
+      this.fetchPokemonListData();
+    }
+  };
 }
 
-export default AnimationList;
+export default PokemonList;

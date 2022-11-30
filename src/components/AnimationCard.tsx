@@ -16,7 +16,6 @@ function AnimationCard({ animation }: AnimationCardProps) {
   useEffect(() => {
     const fetchAnimationSpecies = async () => {
       const result = await fetch(animation.species.url);
-      console.log(result);
       return await result.json();
     };
 
