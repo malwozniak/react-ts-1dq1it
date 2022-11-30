@@ -1,5 +1,5 @@
 /**
- * Utworzenie macierzy obiektów z animacjami
+ * Utworzenie komponentu z  macierzą wyświtlającą obiekty z animacjami
  */
 
 import React from 'react';

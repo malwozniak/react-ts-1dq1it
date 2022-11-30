@@ -1,3 +1,3 @@
 /**
- * Dynamika - losowa zmiana obiektów oraz zapis do bazy
+ * Utworzenie komponentu zmieniającego losowo obiekty oraz zapisujący dane do bazy
  */

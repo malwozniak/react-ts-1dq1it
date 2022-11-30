@@ -1,3 +1,7 @@
+/**
+ * Utworzenie komponentu pokazującego informacje o danej animacji
+ */
+
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import AnimationProfile from './AnimationProfile';

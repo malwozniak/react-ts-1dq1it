@@ -1,6 +1,9 @@
+/**
+ * Utworzenie komponentu z informacją o typie animacji
+ */
+
 import React from 'react';
 import styled from 'styled-components';
-
 import { AnimationTypeItem } from '../types/animation';
 
 type AnimationTypesProps = {

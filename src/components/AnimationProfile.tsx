@@ -1,6 +1,9 @@
+/**
+ * Utworzenie komponentu z informacją o profilu animacji
+ */
+
 import React from 'react';
 import styled from 'styled-components';
-
 import { device } from '../device';
 import AnimationTypes from './AnimationTypes';
 import { Animation } from '../types/animation';
