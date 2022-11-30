@@ -115,6 +115,7 @@ const AnimationListRow = styled.div`
     grid-gap: 10px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
+    justify-items: center;
 `;
 const AnimationListContainer = styled.div`
    
