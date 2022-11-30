@@ -49,6 +49,14 @@ class AnimationList extends React.Component<
   componentDidMount() {
     this.fetchAnimationListData();
   }
+  generateRandomAnimation(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+  getRandomData(data) {
+    console.log(data.results.length);
+    var x = this.generateRandomAnimation(1, data.results.length);
+    return x;
+  }
 
   fetchAnimationListData() {
     this.setState((state, props) => {
@@ -61,6 +69,7 @@ class AnimationList extends React.Component<
       fetch(this.state.nextUrl)
         .then((response) => response.json())
         .then((data) => {
+          console.log(this.getRandomData(data));
           this.setState((state, props) => {
             return {
               nextUrl: data.next,

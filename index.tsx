@@ -1,3 +1,7 @@
+/**
+ * Pobranie danych
+ */
+
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import AnimationList from './src/components/AnimationList';
@@ -31,7 +35,7 @@ class App extends Component<AppProps, AppState> {
 
   async fetchRandomAnimation() {
     const apiCall = await fetch(
-      this.apiBasePath + this.generateRandomInteger(1, 3) + '.json'
+      this.apiBasePath + this.generateRandomInteger(1, 15) + '.json'
     );
     const data = await apiCall.json();
     fetch(data).then((res) => res.json());
