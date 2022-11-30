@@ -13,7 +13,7 @@ type AnimationProfileProps = {
 function AnimationProfile({ animation, description }: AnimationProfileProps) {
   return (
     <Profile>
-      <img width="200" src={animation.sprites.animaton_base} />
+      <img width="200" src={animation.sprites.animation_base} />
       <Attrs>
         <div>Time: {animation.time} s</div>
       </Attrs>

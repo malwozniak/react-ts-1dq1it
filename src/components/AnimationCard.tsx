@@ -20,7 +20,7 @@ function AnimationCard({ animation }: AnimationCardProps) {
     };
 
     fetchAnimationSpecies().then((data) => {
-      const description = data.flavor_text_entries
+      const description = data.text_animation
         .filter((item) => {
           return item.language.name === 'en';
         })[0]

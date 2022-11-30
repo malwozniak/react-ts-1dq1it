@@ -1,0 +1,25 @@
+{
+  "time": 12,
+  "id": 7,
+  "is_default": true,
+  "moves": [],
+  "name": "animation Three.js 12s",
+  "order": 1,
+  "species": {
+    "name": "animation Three.js 12s",
+    "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/type/7.json"
+  },
+  "sprites": {
+    "animation_base": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/804478f6d6b2b2813dfdfd38f64e6207119456e2/images/soon.png"
+  },
+  "stats": [],
+  "types": [
+    {
+      "slot": 1,
+      "type": {
+        "name": "3D",
+        "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/type/7.json"
+      }
+    }
+  ]
+}
