@@ -1,6 +1,6 @@
 import React from 'react';
 import { Animation } from '../types/animation';
-import '../../style.css';
+import styled from 'styled-components';
 type AnimationListProps = {
   onItemClick: (item: any) => void;
   scrollable: boolean;
@@ -82,22 +82,22 @@ class AnimationList extends React.Component<
 
   render() {
     return (
-      <div className="container">
-        <div className="row" id="grid-9">
+      <AnimationListContainer>
+        <AnimationListRow>
           {this.getAnimationDataList().map((item, index) => {
             return (
-              <div
+              <AnimationListBox
                 onClick={(e) => this.handleItemClick(item, e)}
                 key={item.name}
               >
-                <div>
+                <AnimationListImage>
                   <img src={item.sprites.animation_base} width="100" />
-                </div>
-              </div>
+                </AnimationListImage>
+              </AnimationListBox>
             );
           })}
-        </div>
-      </div>
+        </AnimationListRow>
+      </AnimationListContainer>
     );
   }
 
@@ -110,4 +110,20 @@ class AnimationList extends React.Component<
   }
 }
 
+const AnimationListRow = styled.div`
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+`;
+const AnimationListContainer = styled.div`
+   
+`;
+
+const AnimationListBox = styled.div`
+   
+`;
+const AnimationListImage = styled.div`
+
+`;
 export default AnimationList;

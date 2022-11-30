@@ -1,13 +1,13 @@
 {
-  "time": 8,
+  "time": 10,
   "id": 6,
   "is_default": true,
   "moves": [],
-  "name": "animation Three.js 8s",
+  "name": "animation CSS 10s",
   "order": 1,
   "species": {
-    "name": "animation Three.js 8s",
-    "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/type/6.json"
+    "name": "animation CSS 10s",
+    "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/type/1.json"
   },
   "sprites": {
     "animation_base": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/804478f6d6b2b2813dfdfd38f64e6207119456e2/images/soon.png"
@@ -17,8 +17,8 @@
     {
       "slot": 1,
       "type": {
-        "name": "3D",
-        "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/type/6.json"
+        "name": "Isometric Animation",
+        "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/type/1.json"
       }
     }
   ]

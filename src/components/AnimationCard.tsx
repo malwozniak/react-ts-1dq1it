@@ -24,7 +24,7 @@ function AnimationCard({ animation }: AnimationCardProps) {
         .filter((item) => {
           return item.language.name === 'en';
         })[0]
-        .flavor_text.replace(/[^a-zA-Z é . , ']/g, ' ');
+        .text_entry.replace(/[^a-zA-Z é . , ']/g, ' ');
       setAnimationDescription(description);
       setIsReady(true);
     });
