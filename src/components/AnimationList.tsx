@@ -1,8 +1,6 @@
 import React from 'react';
-import Loader from 'react-loader-spinner';
-
 import { Animation } from '../types/animation';
-
+import '../../style.css';
 type AnimationListProps = {
   onItemClick: (item: any) => void;
   scrollable: boolean;
@@ -25,11 +23,9 @@ class AnimationList extends React.Component<
       AnimationData: [],
       nextUrl:
         'https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation.json',
-      loading: false,
+
       searchTerm: '',
     };
-
-    this.handleSearch = this.handleSearch.bind(this);
   }
 
   getAnimationDataList() {
@@ -47,7 +43,6 @@ class AnimationList extends React.Component<
   }
 
   componentDidMount() {
-    document.addEventListener('scroll', this.trackScrolling);
     this.fetchAnimationListData();
   }
 
@@ -68,8 +63,6 @@ class AnimationList extends React.Component<
             };
           });
 
-          document.addEventListener('scroll', this.trackScrolling);
-
           data.results.map((item) => {
             fetch(item.url)
               .then((response) => response.json())
@@ -87,35 +80,18 @@ class AnimationList extends React.Component<
     }, 1000);
   }
 
-  handleSearch(event) {
-    this.setState({ searchTerm: event.target.value });
-  }
-
   render() {
     return (
       <div className="container">
-        <div className="row">
-          <div className="my-4 p-0">
-            <input
-              onChange={this.handleSearch}
-              value={this.state.searchTerm}
-              className="form-control"
-              type="text"
-              placeholder="Search"
-              aria-label="Search"
-            />
-          </div>
-
+        <div className="row" id="grid-9">
           {this.getAnimationDataList().map((item, index) => {
             return (
               <div
                 onClick={(e) => this.handleItemClick(item, e)}
-                className="col-sm-4 text-center text-capitalize card mb-4 list-item"
                 key={item.name}
               >
-                <h2>{item.name}</h2>
                 <div>
-                  <img src={item.sprites.animation_base} />
+                  <img src={item.sprites.animation_base} width="100" />
                 </div>
               </div>
             );
@@ -132,18 +108,6 @@ class AnimationList extends React.Component<
   isBottom(el) {
     return el.getBoundingClientRect().bottom - 10 <= window.innerHeight;
   }
-
-  componentWillUnmount() {
-    document.removeEventListener('scroll', this.trackScrolling);
-  }
-
-  trackScrolling = () => {
-    const wrappedElement = document.getElementsByClassName('container')[0];
-    if (this.isBottom(wrappedElement) && this.props.scrollable === true) {
-      document.removeEventListener('scroll', this.trackScrolling);
-      this.fetchAnimationListData();
-    }
-  };
 }
 
 export default AnimationList;

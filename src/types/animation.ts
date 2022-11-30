@@ -18,7 +18,7 @@ export interface AnimationSpecies {
 }
 
 export interface AnimationSprites {
-  animaton_base: string;
+  animation_base: string;
 }
 
 export interface AnimationTypeItem {
