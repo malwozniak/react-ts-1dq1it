@@ -1,3 +1,7 @@
+/**
+ * Utworzenie macierzy obiektów z animacjami
+ */
+
 import React from 'react';
 import { Animation } from '../types/animation';
 import styled from 'styled-components';

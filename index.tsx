@@ -5,7 +5,8 @@ import Modal from './src/components/Modal';
 import AnimationCard from './src/components/AnimationCard';
 
 interface AppProps {}
-interface AppState {S
+interface AppState {
+  S;
   modalVisible: boolean;
   modalContent: any;
   randomAnimation: object;
@@ -35,12 +36,10 @@ class App extends Component<AppProps, AppState> {
     const data = await apiCall.json();
     fetch(data).then((res) => res.json());
 
-    //console.log(data);
-
     this.setState((state, props) => {
       return {
         modalContent: <AnimationCard animation={data} />,
-        modalVisible: true,
+        modalVisible: false,
       };
     });
   }
