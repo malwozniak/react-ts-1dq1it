@@ -1,11 +1,11 @@
 {
   "time": 8,
-  "id": 13,
   "is_default": true,
   "moves": [],
   "name": "animation Three.js 8s",
   "order": 1,
   "species": {
+    "id": 13,
     "name": "animation Three.js 8s",
     "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/type/1.json"
   },

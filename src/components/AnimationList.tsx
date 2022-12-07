@@ -58,7 +58,9 @@ class AnimationList extends React.Component<
     var x = this.generateRandomAnimation(1, data.results.length);
     return x;
   }
-
+   onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+  }
   fetchAnimationListData() {
     this.setState((state, props) => {
       return {
@@ -94,9 +96,14 @@ class AnimationList extends React.Component<
                     AnimationData,
                     loading: false,
                   };
+                 
                 });
+               
               });
-              console.log(data.results[this.generateRandomAnimation(0, data.results.length)])
+              
+               console.log( data.results)
+              //  let uniqueArray = [...new Set(arrayObjectsAnimation)]
+              //  console.log(uniqueArray)
           data.results.length = numberAnimation;
           });
 

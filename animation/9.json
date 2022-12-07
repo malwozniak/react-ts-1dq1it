@@ -1,11 +1,11 @@
 {
   "time": 0,
-  "id": 9,
   "is_default": true,
   "moves": [],
   "name": "animation Three.js static",
   "order": 1,
   "species": {
+    "id": 9,
     "name": "animation Three.js static",
     "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/type/1.json"
   },
