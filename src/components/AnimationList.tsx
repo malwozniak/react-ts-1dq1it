@@ -68,6 +68,7 @@ class AnimationList extends React.Component<
       };
     });
 
+    const newArray = [];
     setTimeout(() => {
       fetch(this.state.nextUrl)
         .then((response) => response.json())
@@ -95,10 +96,17 @@ class AnimationList extends React.Component<
                 });
               });
 
-            console.log(data.results[this.generateRandomAnimation(0,15)]);
-            console.log(data)
-            // data.results.length = numberAnimation;
+            newArray.push(data.results[this.generateRandomAnimation(0, 15)].id);
+
+            // console.log(data.results[this.generateRandomAnimation(0,15)]);
+            // console.log(data)
+            //
           });
+          console.log(newArray);
+          newArray.map((e, i, a) =>
+            a.indexOf(e) !== i ? e : this.generateRandomAnimation(0, 16)
+          );
+          // data.results.length = numberAnimation;
         });
     }, 1000);
   }
