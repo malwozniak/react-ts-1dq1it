@@ -102,8 +102,8 @@ class AnimationList extends React.Component<
             // console.log(data)
             //
           });
+          newArray.map((e, i, a) => (a.indexOf(e) === i ? e : false));
 
-          newArray.map((e, i, a) => a.indexOf(e === i ? e : false));
           console.log(newArray);
           // data.results.length = numberAnimation;
         });
