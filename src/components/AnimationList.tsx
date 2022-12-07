@@ -102,10 +102,9 @@ class AnimationList extends React.Component<
             // console.log(data)
             //
           });
+
+          newArray.map((e, i, a) => a.indexOf(e === i ? e : false));
           console.log(newArray);
-          newArray.map((e, i, a) =>
-            a.indexOf(e) !== i ? e : this.generateRandomAnimation(0, 16)
-          );
           // data.results.length = numberAnimation;
         });
     }, 1000);
@@ -142,20 +141,20 @@ class AnimationList extends React.Component<
 }
 
 const AnimationListRow = styled.div`
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    justify-items: center;
-`;
+     display: grid;
+     grid-gap: 10px;
+     grid-template-columns: repeat(3, 1fr);
+     grid-template-rows: repeat(3, 1fr);
+     justify-items: center;
+ `;
 const AnimationListContainer = styled.div`
-   
-`;
+    
+ `;
 
 const AnimationListBox = styled.div`
-   
-`;
+    
+ `;
 const AnimationListImage = styled.div`
-
-`;
+ 
+ `;
 export default AnimationList;
