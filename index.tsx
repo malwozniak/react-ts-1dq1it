@@ -10,11 +10,12 @@ import AnimationCard from './src/components/AnimationCard';
 
 interface AppProps {}
 interface AppState {
-  S;
   modalVisible: boolean;
   modalContent: any;
   randomAnimation: object;
 }
+
+const animaTionArray = [9, 4, 2, 1];
 
 class App extends Component<AppProps, AppState> {
   constructor(props) {

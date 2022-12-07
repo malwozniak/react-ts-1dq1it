@@ -10,6 +10,7 @@ type AnimationListProps = {
   scrollable: boolean;
 };
 
+const animationArray = [9, 4, 2, 1];
 type AnimationListState = {
   AnimationData: Animation[];
   nextUrl: string;
@@ -53,7 +54,7 @@ class AnimationList extends React.Component<
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
   getRandomData(data) {
-    console.log(data.results.length);
+    // console.log(data.results.length);
     var x = this.generateRandomAnimation(1, data.results.length);
     return x;
   }
@@ -69,26 +70,37 @@ class AnimationList extends React.Component<
       fetch(this.state.nextUrl)
         .then((response) => response.json())
         .then((data) => {
-          console.log(this.getRandomData(data));
+          // console.log(this.getRandomData(data));
           this.setState((state, props) => {
             return {
               nextUrl: data.next,
             };
           });
+          const numberAnimation =
+            animationArray[this.generateRandomAnimation(0, 3)];
+
+           
 
           data.results.map((item) => {
             fetch(item.url)
               .then((response) => response.json())
               .then((data) => {
+             
                 this.setState((state, props) => {
                   const AnimationData = [...this.state.AnimationData, data];
+
+                  
                   return {
                     AnimationData,
                     loading: false,
                   };
                 });
               });
+              console.log(data.results[this.generateRandomAnimation(0, data.results.length)])
+          data.results.length = numberAnimation;
           });
+
+           
         });
     }, 1000);
   }
