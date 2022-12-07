@@ -4,66 +4,82 @@
   "previous": null,
   "results": [
     {
+      "id": 1,
       "name": "animation CSS static",
       "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/1.json"
     },
     {
+      "id": 2,
       "name": "animation CSS 2s",
       "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/2.json"
     },
     {
+      "id": 3,
       "name": "animation CSS 4s",
       "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/3.json"
     },
     {
+      "id": 4,
       "name": "animation CSS 6s",
       "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/4.json"
     },
     {
+      "id": 5,
       "name": "animation CSS 8s",
       "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/5.json"
     },
     {
+      "id": 6,
       "name": "animation CSS 10s",
       "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/6.json"
     },
     {
+      "id": 7,
       "name": "animation CSS 12s",
       "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/7.json"
     },
     {
+      "id": 8,
       "name": "animation CSS 14s",
       "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/8.json"
     },
     {
+      "id": 9,
       "name": "animation Three.js static",
       "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/9.json"
     },
     {
+      "id": 10,
       "name": "animation Three.js 2s",
       "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/10.json"
     },
     {
+      "id": 11,
       "name": "animation Three.js 4s",
       "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/11.json"
     },
     {
+      "id": 12,
       "name": "animation Three.js 6s",
       "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/12.json"
     },
     {
+      "id": 13,
       "name": "animation Three.js 8s",
       "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/13.json"
     },
     {
+      "id": 14,
       "name": "animation Three.js 10s",
       "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/14.json"
     },
     {
+      "id": 15,
       "name": "animation Three.js 12s",
       "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/15.json"
     },
     {
+      "id": 16,
       "name": "animation Three.js 14s",
       "url": "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/16.json"
     }
