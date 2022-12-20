@@ -3,7 +3,7 @@
  */
 
 import React, { Component } from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import AnimationList from './src/components/AnimationList';
 import Modal from './src/components/Modal';
 import AnimationCard from './src/components/AnimationCard';
@@ -89,5 +89,5 @@ class App extends Component<AppProps, AppState> {
     );
   }
 }
-
-render(<App />, document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
