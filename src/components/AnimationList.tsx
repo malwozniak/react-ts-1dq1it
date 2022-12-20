@@ -5,6 +5,8 @@
 import React from 'react';
 import { Animation } from '../types/animation';
 import styled from 'styled-components';
+// import './animationsObjects/AnimationMotion.css';
+
 type AnimationListProps = {
   onItemClick: (item: any) => void;
   scrollable: boolean;
@@ -116,12 +118,12 @@ class AnimationList extends React.Component<
         <AnimationListRow>
           {this.getAnimationDataList().map((item, index) => {
             return (
-              <AnimationListBox
+              <AnimationListBox className="card"
                 onClick={(e) => this.handleItemClick(item, e)}
                 key={item.name}
               >
-                <AnimationListImage>
-                  <img src={item.sprites.animation_base} width="100" />
+                <AnimationListImage className=" ball-bouncing">
+                  <div className="ball"></div>
                 </AnimationListImage>
               </AnimationListBox>
             );
@@ -136,7 +138,7 @@ class AnimationList extends React.Component<
   }
 
   isBottom(el) {
-    return el.getBoundingClientRect().bottom - 10 <= window.innerHeight;
+    return el.getBoundisngClientRect().bottom - 10 <= window.innerHeight;
   }
 }
 
@@ -153,8 +155,83 @@ const AnimationListContainer = styled.div`
 
 const AnimationListBox = styled.div`
     
+  align-items: center;
+  border-radius: 0.25rem;
+  box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  background-color: var(--gray-card);
+  height: 10rem;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+
  `;
 const AnimationListImage = styled.div`
  
+.ball {
+  background-color: var(--white);
+  border-radius: 50%;
+  height: 3rem;
+  position: absolute;
+  width: 3rem;
+}
+
+/* Ball bouncing */
+  animation: shadowBouncing 1.2s ease-in infinite;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  bottom: 2rem;
+  content: '';
+  height: 0.15rem;
+  position: absolute;
+  width: 2rem;
+
+
+.ball-bouncing .ball {
+  animation: ballBouncing 1.2s ease-in infinite;
+  bottom: 2.1rem;
+  transform-origin: bottom;
+}
+
+@keyframes ballBouncing {
+  0%,
+  100% {
+    transform: scale(1.5, 0.5);
+  }
+  20% {
+    transform: scaleY(1.2);
+  }
+  40%,
+  80% {
+    transform: translateY(-14rem);
+  }
+  70% {
+    transform: translateY(-15rem);
+  }
+  90% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes shadowBouncing {
+  0%,
+  100% {
+    transform: scale(2, 0.8);
+  }
+  20% {
+    transform: scale(1.2, 0.8);
+  }
+  40%,
+  80% {
+    transform: scale(0.5, 0.2);
+  }
+  70% {
+    transform: scale(0.5, 0.15);
+  }
+  90% {
+    transform: scale(1.5, 0.6);
+  }
+}
+/* End ball bouncing */
  `;
 export default AnimationList;
