@@ -140,12 +140,15 @@ class AnimationList extends React.Component<
                   </div>
                 
                   <div className="card text-movement"></div>
-                </div>
-                <Canvas camera={{ position: [0, 0, 5] }}>
+
+                  <Canvas camera={{ position: [0, 0, 5] }}>
+                  <color attach="background" args={['#f5efe6']} />
         <ambientLight intensity={1} />
         <pointLight position={[40, 40, 40]} />
         <Box position={[0, 0, 0]} />
       </Canvas>
+                </div>
+                
                 
               </AnimationListBox>
             );
