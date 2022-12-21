@@ -75,7 +75,7 @@ body {
 
 .down .up .squeeze {
   animation: squeeze 1.6s cubic-bezier(0.72, 0.03, 0.28, 0.97) infinite both;
-  transform-origin: 50% 0%;
+  transform-origin: 50% 100%;
 }
 
 .down .up .squeeze .rotate-in {
@@ -94,7 +94,7 @@ body {
 
 @keyframes down {
   0% {
-    transform: translateY(-10rem);
+    transform: translateY(-3rem);
   }
   20%,
   100% {
@@ -108,7 +108,7 @@ body {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-10rem);
+    transform: translateY(-3rem);
   }
 }
 
@@ -163,7 +163,7 @@ body {
   animation: shadowBouncing 1.2s ease-in infinite;
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 1rem;
-  bottom: 2rem;
+  bottom: 1.7rem;
   content: '';
   height: 0.15rem;
   position: absolute;
@@ -172,7 +172,7 @@ body {
 
 .ball-bouncing .ball {
   animation: ballBouncing 1.2s ease-in infinite;
-  bottom: 2.1rem;
+  bottom: 1.8rem;
   transform-origin: bottom;
 }
 
@@ -186,10 +186,10 @@ body {
   }
   40%,
   80% {
-    transform: translateY(-14rem);
+    transform: translateY(-3rem);
   }
   70% {
-    transform: translateY(-15rem);
+    transform: translateY(-4rem);
   }
   90% {
     transform: translateY(0);
@@ -242,13 +242,13 @@ body {
 
 @keyframes ballMovement {
   0% {
-    transform: translate(14rem, -15rem);
+    transform: translate(14rem, -5rem);
   }
   15% {
     transform: translate(7rem, 0rem) scale(1.2, 0.5);
   }
   30% {
-    transform: translate(2rem, -10rem) scale(1, 1);
+    transform: translate(2rem, -5rem) scale(1, 1);
   }
   45% {
     transform: translate(-2rem, 0rem) scale(1.2, 0.8);

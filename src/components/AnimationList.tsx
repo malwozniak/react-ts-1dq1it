@@ -142,7 +142,6 @@ class AnimationList extends React.Component<
                   <div className="card ball-movement">
                     <div className="ball"></div>
                   </div>
-                  <div className="card counter"></div>
 
                   <div className="card text-movement"></div>
                 </div>
