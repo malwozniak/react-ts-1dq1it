@@ -6,6 +6,8 @@ import React from 'react';
 import { Animation } from '../types/animation';
 import styled from 'styled-components';
 import './animationsObjects/AnimationMotion.css';
+import { Canvas } from '@react-three/fiber';
+import Box from './animationsObjects/AnimationThreeD'
 
 type AnimationListProps = {
   onItemClick: (item: any) => void;
@@ -145,11 +147,19 @@ class AnimationList extends React.Component<
 
                   <div className="card text-movement"></div>
                 </div>
+                <Canvas camera={{ position: [0, 0, 35] }}>
+        <ambientLight intensity={2} />
+        <pointLight position={[40, 40, 40]} />
+        <Box position={[10, 0, 0]} />
+      </Canvas>
+                
               </AnimationListBox>
             );
           })}
         </AnimationListRow>
+      
       </AnimationListContainer>
+      
     );
   }
 
