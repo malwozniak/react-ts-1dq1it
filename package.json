@@ -10,7 +10,9 @@
     "react-dom": "^18.1.0",
     "react-is": ">= 16.8.0",
     "react-loader-spinner": "^5.3.4",
-    "styled-components": "^5.3.6"
+    "react-three-fiber": "^6.0.13",
+    "styled-components": "^5.3.6",
+    "three": "^0.147.0"
   },
   "resolutions": {
     "@types/react": "17.0.14",
