@@ -7,7 +7,7 @@ function Box(props) {
   return (
     <mesh {...props} ref={mesh}>
       <boxGeometry args={[3, 3, 3]} />
-      <meshStandardMaterial color={'orange'} />
+      <meshStandardMaterial color={'#fff'} />
     </mesh>
   );
 }

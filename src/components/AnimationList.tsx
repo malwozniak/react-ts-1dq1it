@@ -142,10 +142,10 @@ class AnimationList extends React.Component<
                   <div className="card text-movement"></div>
 
                   <Canvas camera={{ position: [0, 0, 5] }}>
-                  <color attach="background" args={['#f5efe6']} />
+                  <color attach="background" args={['#beb8b8']} />
         <ambientLight intensity={1} />
         <pointLight position={[40, 40, 40]} />
-        <Box position={[0, 0, 0]} />
+        <Box castShadow position={[0, 0, 0]} />
       </Canvas>
                 </div>
                 
