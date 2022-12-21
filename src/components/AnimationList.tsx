@@ -138,19 +138,13 @@ class AnimationList extends React.Component<
                       </div>
                     </div>
                   </div>
-                  <div className="card ball-bouncing">
-                    <div className="ball"></div>
-                  </div>
-                  <div className="card ball-movement">
-                    <div className="ball"></div>
-                  </div>
-
+                
                   <div className="card text-movement"></div>
                 </div>
-                <Canvas camera={{ position: [0, 0, 35] }}>
-        <ambientLight intensity={2} />
+                <Canvas camera={{ position: [0, 0, 5] }}>
+        <ambientLight intensity={1} />
         <pointLight position={[40, 40, 40]} />
-        <Box position={[10, 0, 0]} />
+        <Box position={[0, 0, 0]} />
       </Canvas>
                 
               </AnimationListBox>
@@ -162,6 +156,13 @@ class AnimationList extends React.Component<
       
     );
   }
+//   <div className="card ball-bouncing">
+//   <div className="ball"></div>
+// </div>
+// <div className="card ball-movement">
+//   <div className="ball"></div>
+// </div>
+
 
   handleItemClick(item, event) {
     this.props.onItemClick(item);
