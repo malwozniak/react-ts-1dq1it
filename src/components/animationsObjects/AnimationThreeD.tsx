@@ -12,7 +12,7 @@ function Box(props) {
   );
   return (
     <mesh {...props} ref={mesh}>
-      <boxGeometry args={[3, 3, 3]} />
+      <sphereBufferGeometry args={[2, 20, 20]} />
       <meshStandardMaterial color={'#fff'} />
     </mesh>
   );
