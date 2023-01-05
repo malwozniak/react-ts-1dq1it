@@ -5,15 +5,21 @@ function Box(props) {
   const mesh = useRef();
   useFrame(
     () => (
-      (mesh.current.rotation.y = mesh.current.rotation.x += 0.02),
-      (mesh.current.position.y += 0.003),
+ 
+      (mesh.current.position.y += 0.01),
       (mesh.current.position.y -= 0.004)
     )
   );
   return (
     <mesh {...props} ref={mesh}>
-      <sphereBufferGeometry args={[2, 20, 20]} />
-      <meshStandardMaterial color={'#fff'} />
+    <sphereGeometry attach="geometry" args={[2, 16, 16]} />
+      <meshStandardMaterial
+        attach="material"
+        color="white"
+        transparent
+        roughness={0.1}
+        metalness={0.1}
+      />
     </mesh>
   );
 }
