@@ -7,7 +7,7 @@ import { Animation } from '../types/animation';
 import styled from 'styled-components';
 import './animationsObjects/AnimationMotion.css';
 import { Canvas } from '@react-three/fiber';
-import Box from './animationsObjects/AnimationThreeD'
+import Box from './animationsObjects/AnimationThreeD';
 
 type AnimationListProps = {
   onItemClick: (item: any) => void;
@@ -125,47 +125,30 @@ class AnimationList extends React.Component<
                 key={item.name}
               >
                 <div className="card-container">
-                  <div className="card square-card">
-                    <div className="down">
-                      <div className="up">
-                        <div className="squeeze">
-                          <div className="rotate-in">
-                            <div className="rotate-out">
-                              <div className="square"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  <div className="card ball-movement">
+                    <div className="ball"></div>
                   </div>
-                
-                  <div className="card text-movement"></div>
 
                   <Canvas camera={{ position: [0, 0, 5] }}>
-                  <color attach="background" args={['#beb8b8']} />
-        <ambientLight intensity={1} />
-        <pointLight position={[40, 40, 40]} />
-        <Box castShadow position={[0, 0, 0]} />
-      </Canvas>
+                    <color attach="background" args={['#beb8b8']} />
+                    <ambientLight intensity={1} />
+                    <pointLight position={[40, 40, 40]} />
+                    <Box castShadow position={[0, 0, 0]} />
+                  </Canvas>
                 </div>
-                
-                
               </AnimationListBox>
             );
           })}
         </AnimationListRow>
-      
       </AnimationListContainer>
-      
     );
   }
-//   <div className="card ball-bouncing">
-//   <div className="ball"></div>
-// </div>
-// <div className="card ball-movement">
-//   <div className="ball"></div>
-// </div>
-
+  //   <div className="card ball-bouncing">
+  //   <div className="ball"></div>
+  // </div>
+  // <div className="card ball-movement">
+  //   <div className="ball"></div>
+  // </div>
 
   handleItemClick(item, event) {
     this.props.onItemClick(item);

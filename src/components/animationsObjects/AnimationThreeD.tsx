@@ -1,8 +1,14 @@
 import React, { useRef, useState } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber';
+import * as THREE from 'three';
 
 function Box(props) {
   const mesh = useRef();
+  const { scene } = useThree();
+
+  //const texture = useLoader(THREE.TextureLoader, "textures/skybox.jpg");
+
+  //scene.background = texture;
   useFrame(
     () => (
       (mesh.current.position.y += 0.01),
