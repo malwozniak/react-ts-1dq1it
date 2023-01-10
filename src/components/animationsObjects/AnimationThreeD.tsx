@@ -2,9 +2,9 @@ import React, { useRef, useState } from 'react';
 import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 let acceleration = 0.1;
-let bounce_distance = 1;
-let bottom_position_y = -1;
-let time_step = 0.02;
+let bounce_distance = 4;
+let bottom_position_y = 0;
+let time_step = 0.03;
 // time_counter is calculated to be the time the ball just reached the top position
 // this is simply calculated with the s = (1/2)gt*t formula, which is the case when ball is dropped from the top position
 let time_counter = Math.sqrt(bounce_distance * 2 / acceleration);
