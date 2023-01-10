@@ -13,9 +13,9 @@ function Box(props) {
   const mesh = useRef();
   const { scene } = useThree();
 
-  //const texture = useLoader(THREE.TextureLoader, "textures/skybox.jpg");
+  const texture = useLoader(THREE.TextureLoader, "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/textures/img3.jpg");
 
-  //scene.background = texture;
+  scene.background = texture;
   useFrame(
     () => {
       if (mesh.current.position.y < bottom_position_y) {
@@ -30,7 +30,7 @@ function Box(props) {
   );
   return (
     <mesh {...props} ref={mesh}>
-      <sphereGeometry attach="geometry" args={[2, 16, 16]} />
+      <sphereGeometry attach="geometry" args={[1, 16, 16]} />
       <meshStandardMaterial
         attach="material"
         color="white"
