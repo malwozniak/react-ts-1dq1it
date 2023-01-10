@@ -18,15 +18,6 @@ body {
   width: 100%;
 }
 
-.card-container {
-  display: grid;
-  grid-gap: 2rem;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  margin: 0 auto;
-  max-width: 100%;
-  padding: 2rem;
-  width: 40rem;
-}
 
 .card {
   align-items: center;
@@ -234,7 +225,7 @@ body {
 }
 
 .ball-movement .ball {
-  animation: ballMovement 1.6s cubic-bezier(0, 0.98, 1, 0.99) infinite;
+  animation: ballMovement 1.6s  infinite;
   bottom: 2.1rem;
   transform: translate(14rem, -15rem) scale(1.2, 0.5);
   transform-origin: bottom;

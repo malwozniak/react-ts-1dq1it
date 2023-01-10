@@ -124,7 +124,7 @@ class AnimationList extends React.Component<
                 onClick={(e) => this.handleItemClick(item, e)}
                 key={item.name}
               >
-                <div className="card-container">
+                <CardContainer>
                   <div className="card ball-movement">
                     <div className="ball"></div>
                   </div>
@@ -135,7 +135,7 @@ class AnimationList extends React.Component<
                     <pointLight position={[40, 40, 40]} />
                     <Box castShadow position={[0, 0, 0]} />
                   </Canvas>
-                </div>
+                </CardContainer>
               </AnimationListBox>
             );
           })}
@@ -158,9 +158,17 @@ class AnimationList extends React.Component<
     return el.getBoundingClientRect().bottom - 10 <= window.innerHeight;
   }
 }
-
 const AnimationListRow = styled.div`
-     
+    
+ `;
+const CardContainer = styled.div`
+display: grid;
+grid-gap: 2rem;
+grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+margin: 0 auto;
+max-width: 100%;
+padding: 2rem;
+width: 40rem;
  `;
 const AnimationListContainer = styled.div`
     
