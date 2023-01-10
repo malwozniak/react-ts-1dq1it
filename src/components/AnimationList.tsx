@@ -128,7 +128,9 @@ class AnimationList extends React.Component<
                   <div className="card ball-movement">
                     <div className="ball"></div>
                   </div>
-
+                  <div className="card ball-bouncing">
+        <div className="ball"></div>
+      </div>
                   <Canvas camera={{ position: [0, 0, 5] }}>
                     <color attach="background" args={['#beb8b8']} />
                     <ambientLight intensity={1} />

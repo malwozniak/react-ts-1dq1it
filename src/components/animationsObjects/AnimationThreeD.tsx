@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 let acceleration = 0.1;
-let bounce_distance = 4;
+let bounce_distance = 0.3;
 let bottom_position_y = 0;
 let time_step = 0.03;
 // time_counter is calculated to be the time the ball just reached the top position
