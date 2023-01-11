@@ -2,7 +2,7 @@
  * Pobranie danych
  */
 
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import AnimationList from './src/components/AnimationList';
 import Modal from './src/components/Modal';
@@ -14,9 +14,8 @@ interface AppState {
   modalContent: any;
   randomAnimation: object;
 }
-
+const num = [];
 const animaTionArray = [9, 4, 2, 1];
-
 class App extends Component<AppProps, AppState> {
   constructor(props) {
     super(props);
@@ -35,9 +34,7 @@ class App extends Component<AppProps, AppState> {
     'https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/';
 
   async fetchRandomAnimation() {
-    const apiCall = await fetch(
-      this.apiBasePath + this.generateRandomInteger(1, 15) + '.json'
-    );
+    const apiCall = await fetch(this.apiBasePath + num + '.json');
     const data = await apiCall.json();
     fetch(data).then((res) => res.json());
 
@@ -49,9 +46,6 @@ class App extends Component<AppProps, AppState> {
     });
   }
 
-  generateRandomInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  }
 
   componentDidMount() {
     this.fetchRandomAnimation();
@@ -84,7 +78,7 @@ class App extends Component<AppProps, AppState> {
             onModalClose={this.handleModalClose}
           />
         )}
-        <AnimationList onItemClick={this.handleItemClick} />
+        <AnimationList onItemClick={this.handleItemClick} num={num} />
       </div>
     );
   }

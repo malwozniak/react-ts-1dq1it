@@ -9,7 +9,6 @@ import './animationsObjects/AnimationMotion.css';
 import { Canvas } from '@react-three/fiber';
 import Box from './animationsObjects/AnimationThreeD';
 import arrayShuffle from 'array-shuffle';
-const imgQty = 9;
 
 function RandomImage(props) {
   const style = {
@@ -20,21 +19,20 @@ function RandomImage(props) {
     transition: 'background-image 1s ease-in-out',
     backgroundSize: `${100}%`,
   };
+  // console.log(props.num);
 
   return <a href="#" style={style} />;
 }
 type AnimationListProps = {
   onItemClick: (item: any) => void;
-  scrollable: boolean;
+  num: [];
 };
 
-const animationArray = [9, 4, 2, 1];
 type AnimationListState = {
   AnimationData: Animation[];
   nextUrl: string;
   loading: boolean;
   searchTerm: string;
-  s;
 };
 
 class AnimationList extends React.Component<
@@ -72,14 +70,7 @@ class AnimationList extends React.Component<
   generateRandomAnimation(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
-  getRandomData(data) {
-    // console.log(data.results.length);
-    var x = this.generateRandomAnimation(1, data.results.length);
-    return x;
-  }
-  onlyUnique(value, index, self) {
-    return self.indexOf(value) === index;
-  }
+
   fetchAnimationListData() {
     this.setState((state, props) => {
       return {
@@ -89,41 +80,42 @@ class AnimationList extends React.Component<
 
     const newArray = [];
     // setInterval(() => {
-    fetch(this.state.nextUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        // console.log(this.getRandomData(data));
-        this.setState((state, props) => {
-          return {
-            nextUrl: data.next,
-          };
-        });
+      fetch(this.state.nextUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          // console.log(this.getRandomData(data));
+          // data = this.generateRandomAnimation(0,16);
+          this.setState((state, props) => {
+            return {
+              nextUrl: data.next,
+            };
+          });
 
-        data.results.map((item) => {
-          fetch(item.url)
-            .then((response) => response.json())
-            .then((data) => {
-              this.setState((state, props) => {
-                const AnimationData = [...this.state.AnimationData, data];
-
-                return {
-                  AnimationData,
-                  loading: false,
-                  numbers: arrayShuffle(newArray),
-                };
+          data.results.map((item) => {
+            fetch(item.url)
+              .then((response) => response.json())
+              .then((data) => {
+                this.setState((state, props) => {
+                  const AnimationData = [...this.state.AnimationData, data];
+                  return {
+                    AnimationData,
+                    loading: false,
+                    numbers: data.order,
+                  };
+                });
               });
-            });
 
-          newArray.push(data.results[this.generateRandomAnimation(0, 15)].id);
+            newArray.push(data.results);
+            // console.log(data.results[this.generateRandomAnimation(0,15)]);
+            // console.log(data)
+            //
+          });
+          //    let a = newArray.map((e, i, a) => (a.indexOf(e) === i ? e : false));
+          console.log(newArray);
 
-          // console.log(data.results[this.generateRandomAnimation(0,15)]);
-          // console.log(data)
-          //
+          // data.results.length = numberAnimation;
         });
-        newArray.map((e, i, a) => (a.indexOf(e) === i ? e : false));
-
-        // data.results.length = numberAnimation;
-      });
+      console.log(newArray);
     // }, 10000);
   }
 
@@ -138,9 +130,8 @@ class AnimationList extends React.Component<
                 key={item.name}
               >
                 <CardContainer>
-                  <div className="card ball-movement">
+                  <div className="card">
                     <RandomImage className="card" num={item.order} />
-                    <div className="ball"></div>
                   </div>
                   <div></div>
                   {/* <div className="card ball-bouncing">

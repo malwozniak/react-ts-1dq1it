@@ -15,8 +15,9 @@ type AnimationProfileProps = {
 
 function AnimationProfile({ animation, description }: AnimationProfileProps) {
   return (
-    <Profile>
+    <Profile>s
       <img width="200" src={animation.sprites.animation_base} />
+      <p>{animation.order}</p>
       <Attrs>
         <div>Time: {animation.time} s</div>
       </Attrs>
