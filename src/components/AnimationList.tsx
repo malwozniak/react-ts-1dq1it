@@ -139,13 +139,10 @@ class AnimationList extends React.Component<
               >
                 <CardContainer>
                   <div className="card ball-movement">
-                    
-                  <RandomImage className="card" num={item.order} />
+                    <RandomImage className="card" num={item.order} />
                     <div className="ball"></div>
                   </div>
-                  <div>
-                   
-                  </div>
+                  <div></div>
                   {/* <div className="card ball-bouncing">
         <div className="ball"></div>
       </div>
@@ -179,19 +176,18 @@ class AnimationList extends React.Component<
   }
 }
 const AnimationListRow = styled.div`
-    
- `;
-const CardContainer = styled.div`
 display: grid;
 grid-gap: 2rem;
-grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-margin: 0 auto;
-max-width: 100%;
+grid-template-columns: repeat(3, 1fr);
 padding: 2rem;
-width: 40rem;
+ `;
+const CardContainer = styled.div`
+
  `;
 const AnimationListContainer = styled.div`
-    
+display: grid;
+gap: 1px;
+grid-template-columns: repeat(3, 1fr);
  `;
 
 const AnimationListBox = styled.div`
