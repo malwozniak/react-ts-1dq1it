@@ -8,7 +8,20 @@ import styled from 'styled-components';
 import './animationsObjects/AnimationMotion.css';
 import { Canvas } from '@react-three/fiber';
 import Box from './animationsObjects/AnimationThreeD';
+import arrayShuffle from 'array-shuffle';
+const imgQty = 9;
 
+function RandomImage(props) {
+  const style = {
+    width: 200,
+    height: 200,
+    display: 'inline-block',
+    backgroundImage: `url(https://unsplash.it/150/200?image=${props.num})`,
+    transition: 'background-image 1s ease-in-out',
+  };
+
+  return <a href="#" style={style} />;
+}
 type AnimationListProps = {
   onItemClick: (item: any) => void;
   scrollable: boolean;
@@ -20,6 +33,7 @@ type AnimationListState = {
   nextUrl: string;
   loading: boolean;
   searchTerm: string;
+  s;
 };
 
 class AnimationList extends React.Component<
@@ -73,45 +87,43 @@ class AnimationList extends React.Component<
     });
 
     const newArray = [];
-    setTimeout(() => {
-      fetch(this.state.nextUrl)
-        .then((response) => response.json())
-        .then((data) => {
-          // console.log(this.getRandomData(data));
-          this.setState((state, props) => {
-            return {
-              nextUrl: data.next,
-            };
-          });
-          const numberAnimation =
-            animationArray[this.generateRandomAnimation(0, 3)];
-
-          data.results.map((item) => {
-            fetch(item.url)
-              .then((response) => response.json())
-              .then((data) => {
-                this.setState((state, props) => {
-                  const AnimationData = [...this.state.AnimationData, data];
-
-                  return {
-                    AnimationData,
-                    loading: false,
-                  };
-                });
-              });
-
-            newArray.push(data.results[this.generateRandomAnimation(0, 15)].id);
-
-            // console.log(data.results[this.generateRandomAnimation(0,15)]);
-            // console.log(data)
-            //
-          });
-          newArray.map((e, i, a) => (a.indexOf(e) === i ? e : false));
-
-          console.log(newArray);
-          // data.results.length = numberAnimation;
+    // setInterval(() => {
+    fetch(this.state.nextUrl)
+      .then((response) => response.json())
+      .then((data) => {
+       // console.log(this.getRandomData(data));
+        this.setState((state, props) => {
+          return {
+            nextUrl: data.next,
+            numbers: arrayShuffle(newArray),
+          };
         });
-    }, 1000);
+
+        data.results.map((item) => {
+          fetch(item.url)
+            .then((response) => response.json())
+            .then((data) => {
+              this.setState((state, props) => {
+                const AnimationData = [...this.state.AnimationData, data];
+
+                return {
+                  AnimationData,
+                  loading: false,
+                };
+              });
+            });
+
+          newArray.push(data.results[this.generateRandomAnimation(0, 15)].id);
+
+          // console.log(data.results[this.generateRandomAnimation(0,15)]);
+          // console.log(data)
+          //
+        });
+        newArray.map((e, i, a) => (a.indexOf(e) === i ? e : false));
+
+        // data.results.length = numberAnimation;
+      });
+    // }, 10000);
   }
 
   render() {
@@ -128,7 +140,10 @@ class AnimationList extends React.Component<
                   <div className="card ball-movement">
                     <div className="ball"></div>
                   </div>
-                  <div className="card ball-bouncing">
+                  <div className="card">
+                    <RandomImage num={item.order} />
+                  </div>
+                  {/* <div className="card ball-bouncing">
         <div className="ball"></div>
       </div>
                   <Canvas camera={{ position: [0, 0, 5] }}>
@@ -136,7 +151,7 @@ class AnimationList extends React.Component<
                     <ambientLight intensity={1} />
                     <pointLight position={[40, 40, 40]} />
                     <Box castShadow position={[0, 0, 0]} />
-                  </Canvas>
+                  </Canvas> */}
                 </CardContainer>
               </AnimationListBox>
             );

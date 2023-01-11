@@ -12,7 +12,6 @@ let initial_speed = acceleration * time_counter;
 function Box(props) {
   const mesh = useRef();
   const { scene } = useThree();
-
   const texture = useLoader(THREE.TextureLoader, "https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/textures/img3.jpg");
 
   scene.background = texture;

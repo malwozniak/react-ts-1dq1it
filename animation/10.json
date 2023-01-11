@@ -3,7 +3,7 @@
   "is_default": true,
   "moves": [],
   "name": "animation Three.js 2s",
-  "order": 1,
+  "order": 10,
   "species": {
     "id": 10,
     "name": "animation Three.js 2s",
