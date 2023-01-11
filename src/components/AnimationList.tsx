@@ -13,12 +13,12 @@ const imgQty = 9;
 
 function RandomImage(props) {
   const style = {
-    width: 150,
+    width: 200,
     height: 200,
-    backgroundColor: 'dodgerblue',
     display: 'inline-block',
-    backgroundImage: `url(https://unsplash.it/150/200?image=${props.num})`,
+    backgroundImage: `url(https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/textures/img${props.num}.jpg)`,
     transition: 'background-image 1s ease-in-out',
+    backgroundSize: 200,
   };
 
   return <a href="#" style={style} />;
@@ -139,10 +139,12 @@ class AnimationList extends React.Component<
               >
                 <CardContainer>
                   <div className="card ball-movement">
+                    
+                  <RandomImage className="card" num={item.order} />
                     <div className="ball"></div>
                   </div>
-                  <div className="card">
-                    <RandomImage num={item.order} />
+                  <div>
+                   
                   </div>
                   {/* <div className="card ball-bouncing">
         <div className="ball"></div>
