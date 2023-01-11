@@ -191,7 +191,4 @@ const AnimationListContainer = styled.div`
 const AnimationListBox = styled.div`
     
  `;
-const AnimationListImage = styled.div`
- 
- `;
 export default AnimationList;
