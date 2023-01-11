@@ -13,12 +13,12 @@ const imgQty = 9;
 
 function RandomImage(props) {
   const style = {
-    width: 200,
-    height: 200,
+    width: `${100}%`,
+    height: `${100}%`,
     display: 'inline-block',
     backgroundImage: `url(https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/textures/img${props.num}.jpg)`,
     transition: 'background-image 1s ease-in-out',
-    backgroundSize: 200,
+    backgroundSize: `${100}%`,
   };
 
   return <a href="#" style={style} />;
