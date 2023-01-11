@@ -77,6 +77,7 @@ class AnimationList extends React.Component<
         loading: true,
       };
     });
+    let arrayNew=[];          
 
     const newArray = [];
     // setInterval(() => {
@@ -97,27 +98,35 @@ class AnimationList extends React.Component<
               .then((data) => {
                 this.setState((state, props) => {
                   const AnimationData = [...this.state.AnimationData, data];
-                  for(let i=0 ; i<=16 ; i++){
-                  if(AnimationData[i] >= 16){
-                    let dataNew =arrayShuffle(AnimationData)
+                  AnimationData.forEach(a => {
+                    arrayNew.push(a.order)
+                 
+                    if(a.order == data.order){
+                    let dataNew =arrayShuffle(AnimationData);
+
+
 return{
+  
                     AnimationData,
                     loading: false,
-                    numbers: data.order,
+                    numbers: dataNew,
 }
-                  }
-                else{
-            // newArray.push("AAAP",AnimationData);
-                
-                  return {
-                    AnimationData,
-                    loading: false,
-                    numbers: data.order,
-                  };
-                }
-              }
+}       
+             
+              
+            });
+            return{
+              AnimationData
+            }
+
                 });
+                  
+                // console.log(arrayNew.filter((el, pos) => {
+                //   return arrayNew.indexOf(pos)=== el;
+                // } ))
+                console.log(arrayNew)
               });
+             
 
             // console.log(data.results[this.generateRandomAnimation(0,15)]);
             // console.log(data)
