@@ -90,33 +90,49 @@ class AnimationList extends React.Component<
               nextUrl: data.next,
             };
           });
-
+// console.log(data.results)
           data.results.map((item) => {
             fetch(item.url)
               .then((response) => response.json())
               .then((data) => {
                 this.setState((state, props) => {
                   const AnimationData = [...this.state.AnimationData, data];
+                  for(let i=0 ; i<=16 ; i++){
+                  if(AnimationData[i] >= 16){
+                    let dataNew =arrayShuffle(AnimationData)
+return{
+                    AnimationData,
+                    loading: false,
+                    numbers: data.order,
+}
+                  }
+                else{
+            // newArray.push("AAAP",AnimationData);
+                
                   return {
                     AnimationData,
                     loading: false,
                     numbers: data.order,
                   };
+                }
+              }
                 });
               });
 
-            newArray.push(data.results);
             // console.log(data.results[this.generateRandomAnimation(0,15)]);
             // console.log(data)
             //
           });
           //    let a = newArray.map((e, i, a) => (a.indexOf(e) === i ? e : false));
-          console.log(newArray);
+          // console.log(newArray);
 
           // data.results.length = numberAnimation;
+          console.log(newArray)
+
         });
-      console.log(newArray);
+      console.log();
     // }, 10000);
+    
   }
 
   render() {
