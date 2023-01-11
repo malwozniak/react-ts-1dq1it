@@ -13,8 +13,9 @@ const imgQty = 9;
 
 function RandomImage(props) {
   const style = {
-    width: 200,
+    width: 150,
     height: 200,
+    backgroundColor: 'dodgerblue',
     display: 'inline-block',
     backgroundImage: `url(https://unsplash.it/150/200?image=${props.num})`,
     transition: 'background-image 1s ease-in-out',
@@ -91,11 +92,10 @@ class AnimationList extends React.Component<
     fetch(this.state.nextUrl)
       .then((response) => response.json())
       .then((data) => {
-       // console.log(this.getRandomData(data));
+        // console.log(this.getRandomData(data));
         this.setState((state, props) => {
           return {
             nextUrl: data.next,
-            numbers: arrayShuffle(newArray),
           };
         });
 
@@ -109,6 +109,7 @@ class AnimationList extends React.Component<
                 return {
                   AnimationData,
                   loading: false,
+                  numbers: arrayShuffle(newArray),
                 };
               });
             });
