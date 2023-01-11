@@ -1,6 +1,6 @@
 :root {
   --alabaster: hsla(0, 0%, 98%, 0.425);
-  --gray-card: #beb8b8;
+  --gray-card: #808080;
   --white: #fff;
 }
 
@@ -32,7 +32,7 @@ body {
 }
 
 .ball {
-  background-color: var(--alabaster);
+  background-color: var(--gray-card);
   border-radius: 50%;
   height: 3rem;
   position: absolute;
