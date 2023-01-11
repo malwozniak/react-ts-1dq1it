@@ -185,9 +185,7 @@ const CardContainer = styled.div`
 
  `;
 const AnimationListContainer = styled.div`
-display: grid;
-gap: 1px;
-grid-template-columns: repeat(3, 1fr);
+
  `;
 
 const AnimationListBox = styled.div`
