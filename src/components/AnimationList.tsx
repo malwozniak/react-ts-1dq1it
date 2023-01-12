@@ -29,6 +29,20 @@ function generateRandomAnimation(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+
+function setIntervalX(callback, delay, repetitions) {
+  var x = 0;
+  var intervalID = window.setInterval(function () {
+
+     callback();
+
+     if (++x === repetitions) {
+         window.clearInterval(intervalID);
+     }
+  }, delay);
+}
+
+
 type AnimationListProps = {
   onItemClick: (item: any) => void;
 };
@@ -43,6 +57,7 @@ class AnimationList extends React.Component<
   AnimationListProps,
   AnimationListState
 > {
+interval: any;
   constructor(props) {
     super(props);
     this.state = {
@@ -54,11 +69,17 @@ class AnimationList extends React.Component<
   }
 
   getAnimationDataList() {
+
     return this.state.AnimationData;
   }
 
   componentDidMount() {
+     this.interval = setIntervalX(() => {
     this.fetchAnimationListData();
+    },1000,5);
+  }
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   fetchAnimationListData() {
@@ -175,7 +196,7 @@ const AnimationListRow = styled.div`
   display: grid;
   grid-gap: 2rem;
   grid-template-columns: repeat(3, 1fr);
-  padding: 2rem;
+  padding: 3rem;
   text-align: -webkit-center;
    `;
 const CardContainer = styled.div`
