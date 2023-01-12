@@ -71,14 +71,14 @@ class AnimationList extends React.Component<
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
+
   fetchAnimationListData() {
     this.setState((state, props) => {
       return {
         loading: true,
       };
     });
-    let arrayNew=[];          
-
+    let arrayNew=[], uniqueNum;
     const newArray = [];
     // setInterval(() => {
       fetch(this.state.nextUrl)
@@ -92,42 +92,29 @@ class AnimationList extends React.Component<
             };
           });
 // console.log(data.results)
-          data.results.map((item) => {
+          data.results.map((item, index) => {
             fetch(item.url)
               .then((response) => response.json())
               .then((data) => {
                 this.setState((state, props) => {
+              
                   const AnimationData = [...this.state.AnimationData, data];
-                  AnimationData.forEach(a => {
-                    arrayNew.push(a.order)
+                
                  
-                    if(a.order == data.order){
-                    let dataNew =arrayShuffle(AnimationData);
+ console.log(AnimationData)
 
-
+                  
 return{
   
                     AnimationData,
-                    loading: false,
-                    numbers: dataNew,
+                    numbers: this.generateRandomAnimation(0,16)
 }
-}       
-             
-              
-            });
-            return{
-              AnimationData
-            }
+
 
                 });
-                  
-                // console.log(arrayNew.filter((el, pos) => {
-                //   return arrayNew.indexOf(pos)=== el;
-                // } ))
-                console.log(arrayNew)
-              });
-             
 
+              });
+              
             // console.log(data.results[this.generateRandomAnimation(0,15)]);
             // console.log(data)
             //
@@ -136,12 +123,11 @@ return{
           // console.log(newArray);
 
           // data.results.length = numberAnimation;
-          console.log(newArray)
+          // console.log(newArray)
+
 
         });
-      console.log();
     // }, 10000);
-    
   }
 
   render() {
@@ -158,7 +144,6 @@ return{
                   <div className="card">
                     <RandomImage className="card" num={item.order} />
                   </div>
-                  <div></div>
                   {/* <div className="card ball-bouncing">
         <div className="ball"></div>
       </div>
