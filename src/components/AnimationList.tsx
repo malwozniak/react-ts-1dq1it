@@ -49,6 +49,7 @@ class AnimationList extends React.Component<
       AnimationData: [],
       nextUrl:
         'https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation.json',
+        loading: true,
     };
   }
 
@@ -67,7 +68,7 @@ class AnimationList extends React.Component<
       };
     });
     let newArr = [];
-    setTimeout(() => {
+    setInterval(() => {
       fetch(this.state.nextUrl)
         .then((response) => response.json())
         .then((data) => {
@@ -77,7 +78,7 @@ class AnimationList extends React.Component<
             };
           });
 
-          data.results.map((item, index) => {
+          data.results.map((item) => {
             fetch(item.url)
               .then((response) => response.json())
               .then((data) => {
@@ -92,20 +93,31 @@ class AnimationList extends React.Component<
                       );
                     }
                   );
-                  const AnimationData = [...uniqueChars, ...newArr];
-                  // if(data)
+                  const AnimationDataa = [...uniqueChars, ...newArr];
+                  /** Miszanie obiektów tablicy z objektami animacji */
+                  if (AnimationDataa.length == 16) {
+                    console.log(AnimationDataa);
+                    const AnimationData = arrayShuffle(AnimationDataa);
+                    /** Usunięcie pozostałych elementów z tablicy */
+                    AnimationData.splice(9, 15);
+                    console.log(AnimationData);
+                    return {
+                      AnimationData,
+                      loading: false,
+                    };
+                  } else {
+                    console.log('AN', AnimationDataa);
 
-                  return {
-                    AnimationData,
-                    loading: false,
-                  };
+                    return {
+                      AnimationDataa,
+                      loading: false,
+                    };
+                  }
                 });
               });
           });
-
-          console.log(data.results);
         });
-    }, 1000);
+    }, 3000);
   }
   render() {
     return (
@@ -121,21 +133,21 @@ class AnimationList extends React.Component<
                   <div className="card">
                     <RandomImage className="card" num={item.order} />
                     {/* <Canvas camera={{ position: [0, 0, 5] }}>
-                     <color attach="background" args={['#beb8b8']} />
-                     <ambientLight intensity={1} />
-                     <pointLight position={[40, 40, 40]} />
-                     <Box castShadow position={[0, 0, 0]} />
-                   </Canvas> */}
+                      <color attach="background" args={['#beb8b8']} />
+                      <ambientLight intensity={1} />
+                      <pointLight position={[40, 40, 40]} />
+                      <Box castShadow position={[0, 0, 0]} />
+                    </Canvas> */}
                   </div>
                   {/* <div className="card ball-bouncing">
-         <div className="ball"></div>
-       </div>
-                   <Canvas camera={{ position: [0, 0, 5] }}>
-                     <color attach="background" args={['#beb8b8']} />
-                     <ambientLight intensity={1} />
-                     <pointLight position={[40, 40, 40]} />
-                     <Box castShadow position={[0, 0, 0]} />
-                   </Canvas> */}
+          <div className="ball"></div>
+        </div>
+                    <Canvas camera={{ position: [0, 0, 5] }}>
+                      <color attach="background" args={['#beb8b8']} />
+                      <ambientLight intensity={1} />
+                      <pointLight position={[40, 40, 40]} />
+                      <Box castShadow position={[0, 0, 0]} />
+                    </Canvas> */}
                 </CardContainer>
               </AnimationListBox>
             );
@@ -160,20 +172,20 @@ class AnimationList extends React.Component<
   }
 }
 const AnimationListRow = styled.div`
- display: grid;
- grid-gap: 2rem;
- grid-template-columns: repeat(3, 1fr);
- padding: 2rem;
- text-align: -webkit-center;
-  `;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 2rem;
+  text-align: -webkit-center;
+   `;
 const CardContainer = styled.div`
- 
-  `;
+  
+   `;
 const AnimationListContainer = styled.div`
- 
-  `;
+  
+   `;
 
 const AnimationListBox = styled.div`
-     
-  `;
+      
+   `;
 export default AnimationList;
