@@ -37,7 +37,6 @@ type AnimationListState = {
   AnimationData: Animation[];
   nextUrl: string;
   loading: boolean;
-  searchTerm: string;
 };
 
 class AnimationList extends React.Component<
@@ -50,24 +49,10 @@ class AnimationList extends React.Component<
       AnimationData: [],
       nextUrl:
         'https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation.json',
-
-      searchTerm: '',
     };
   }
 
   getAnimationDataList() {
-    if (this.state.searchTerm != '') {
-      console.log("CONSTRUCT", this.state.AnimationData)
-
-      return this.state.AnimationData.filter((animation) => {
-        return (
-          animation.name
-            .toLowerCase()
-            .indexOf(this.state.searchTerm.toLowerCase()) !== -1
-        );
-      });
-    }
-
     return this.state.AnimationData;
   }
 
@@ -81,7 +66,7 @@ class AnimationList extends React.Component<
         loading: true,
       };
     });
-
+    let newArr = [];
     setTimeout(() => {
       fetch(this.state.nextUrl)
         .then((response) => response.json())
@@ -92,14 +77,24 @@ class AnimationList extends React.Component<
             };
           });
 
-          data.results.map((item) => {
+          data.results.map((item, index) => {
             fetch(item.url)
               .then((response) => response.json())
               .then((data) => {
                 this.setState((state, props) => {
-                  console.log(data);
-                  console.log([...this.state.AnimationData]);
-                  const AnimationData = [...this.state.AnimationData, data];
+                  //  console.log( this.state.AnimationData);
+
+                  newArr.push(data);
+                  let uniqueChars = this.state.AnimationData.filter(
+                    (element, index) => {
+                      return (
+                        this.state.AnimationData.indexOf(element + 1) === index
+                      );
+                    }
+                  );
+                  const AnimationData = [...uniqueChars, ...newArr];
+                  // if(data)
+
                   return {
                     AnimationData,
                     loading: false,
@@ -107,6 +102,8 @@ class AnimationList extends React.Component<
                 });
               });
           });
+
+          console.log(data.results);
         });
     }, 1000);
   }
@@ -114,7 +111,7 @@ class AnimationList extends React.Component<
     return (
       <AnimationListContainer>
         <AnimationListRow>
-          {this.getAnimationDataList().map((item, index) => {
+          {this.getAnimationDataList().map((item) => {
             return (
               <AnimationListBox
                 onClick={(e) => this.handleItemClick(item, e)}
@@ -123,16 +120,22 @@ class AnimationList extends React.Component<
                 <CardContainer>
                   <div className="card">
                     <RandomImage className="card" num={item.order} />
+                    {/* <Canvas camera={{ position: [0, 0, 5] }}>
+                     <color attach="background" args={['#beb8b8']} />
+                     <ambientLight intensity={1} />
+                     <pointLight position={[40, 40, 40]} />
+                     <Box castShadow position={[0, 0, 0]} />
+                   </Canvas> */}
                   </div>
                   {/* <div className="card ball-bouncing">
-        <div className="ball"></div>
-      </div>
-                  <Canvas camera={{ position: [0, 0, 5] }}>
-                    <color attach="background" args={['#beb8b8']} />
-                    <ambientLight intensity={1} />
-                    <pointLight position={[40, 40, 40]} />
-                    <Box castShadow position={[0, 0, 0]} />
-                  </Canvas> */}
+         <div className="ball"></div>
+       </div>
+                   <Canvas camera={{ position: [0, 0, 5] }}>
+                     <color attach="background" args={['#beb8b8']} />
+                     <ambientLight intensity={1} />
+                     <pointLight position={[40, 40, 40]} />
+                     <Box castShadow position={[0, 0, 0]} />
+                   </Canvas> */}
                 </CardContainer>
               </AnimationListBox>
             );
@@ -157,20 +160,20 @@ class AnimationList extends React.Component<
   }
 }
 const AnimationListRow = styled.div`
-display: grid;
-grid-gap: 2rem;
-grid-template-columns: repeat(3, 1fr);
-padding: 2rem;
-text-align: -website-center;
- `;
+ display: grid;
+ grid-gap: 2rem;
+ grid-template-columns: repeat(3, 1fr);
+ padding: 2rem;
+ text-align: -webkit-center;
+  `;
 const CardContainer = styled.div`
-
- `;
+ 
+  `;
 const AnimationListContainer = styled.div`
-
- `;
+ 
+  `;
 
 const AnimationListBox = styled.div`
-    
- `;
+     
+  `;
 export default AnimationList;
