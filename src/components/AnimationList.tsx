@@ -10,6 +10,7 @@ import { Canvas } from '@react-three/fiber';
 import Box from './animationsObjects/AnimationThreeD';
 import arrayShuffle from 'array-shuffle';
 
+/** Function generate Random Images */
 function RandomImage(props) {
   const style = {
     width: `${100}%`,
@@ -21,11 +22,15 @@ function RandomImage(props) {
   };
   // console.log(props.num);
 
-  return <a href="#" style={style} />;
+  return <img style={style} alt="" />;
 }
+/** Function generate Random Number of Cards  */
+function generateRandomAnimation(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 type AnimationListProps = {
   onItemClick: (item: any) => void;
-  num: [];
 };
 
 type AnimationListState = {
@@ -52,6 +57,8 @@ class AnimationList extends React.Component<
 
   getAnimationDataList() {
     if (this.state.searchTerm != '') {
+      console.log("CONSTRUCT", this.state.AnimationData)
+
       return this.state.AnimationData.filter((animation) => {
         return (
           animation.name
@@ -67,10 +74,6 @@ class AnimationList extends React.Component<
   componentDidMount() {
     this.fetchAnimationListData();
   }
-  generateRandomAnimation(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  }
-
 
   fetchAnimationListData() {
     this.setState((state, props) => {
@@ -78,58 +81,35 @@ class AnimationList extends React.Component<
         loading: true,
       };
     });
-    let arrayNew=[], uniqueNum;
-    const newArray = [];
-    // setInterval(() => {
+
+    setTimeout(() => {
       fetch(this.state.nextUrl)
         .then((response) => response.json())
         .then((data) => {
-          // console.log(this.getRandomData(data));
-          // data = this.generateRandomAnimation(0,16);
           this.setState((state, props) => {
             return {
               nextUrl: data.next,
             };
           });
-// console.log(data.results)
-          data.results.map((item, index) => {
+
+          data.results.map((item) => {
             fetch(item.url)
               .then((response) => response.json())
               .then((data) => {
                 this.setState((state, props) => {
-              
+                  console.log(data);
+                  console.log([...this.state.AnimationData]);
                   const AnimationData = [...this.state.AnimationData, data];
-                
-                 
- console.log(AnimationData)
-
-                  
-return{
-  
+                  return {
                     AnimationData,
-                    numbers: this.generateRandomAnimation(0,16)
-}
-
-
+                    loading: false,
+                  };
                 });
-
               });
-              
-            // console.log(data.results[this.generateRandomAnimation(0,15)]);
-            // console.log(data)
-            //
           });
-          //    let a = newArray.map((e, i, a) => (a.indexOf(e) === i ? e : false));
-          // console.log(newArray);
-
-          // data.results.length = numberAnimation;
-          // console.log(newArray)
-
-
         });
-    // }, 10000);
+    }, 1000);
   }
-
   render() {
     return (
       <AnimationListContainer>
@@ -181,6 +161,7 @@ display: grid;
 grid-gap: 2rem;
 grid-template-columns: repeat(3, 1fr);
 padding: 2rem;
+text-align: -website-center;
  `;
 const CardContainer = styled.div`
 

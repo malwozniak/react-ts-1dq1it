@@ -15,7 +15,7 @@ interface AppState {
   randomAnimation: object;
 }
 const num = [];
-const animaTionArray = [9, 4, 2, 1];
+// const animaTionArray = [9, 4, 2, 1];
 class App extends Component<AppProps, AppState> {
   constructor(props) {
     super(props);
@@ -45,7 +45,6 @@ class App extends Component<AppProps, AppState> {
       };
     });
   }
-
 
   componentDidMount() {
     this.fetchRandomAnimation();
