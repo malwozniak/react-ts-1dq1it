@@ -2,7 +2,7 @@
  * Utworzenie komponentu z  macierzą wyświtlającą obiekty z animacjami
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Animation } from '../types/animation';
 import styled from 'styled-components';
 import './animationsObjects/AnimationMotion.css';
@@ -70,9 +70,21 @@ class AnimationList extends React.Component<
     return this.state.AnimationData;
   }
 
-  componentDidMount() {
-    this.fetchAnimationListData();
+  async componentDidMount() {
+    
+      for (let i = 0; i < 3; i++) {
+        setInterval(() => {
+        this.fetchAnimationListData();
+      }, 10000)
+      }
+    
+
+    //  5000);
   }
+
+  // componentWillUnmount() {
+  //   clearInterval(this.interval);
+  // }
 
   fetchAnimationListData() {
     this.setState((state, props) => {
@@ -82,8 +94,7 @@ class AnimationList extends React.Component<
       };
     });
     let newArr = [];
-
-    fetch(this.state.nextUrl)
+    const ListOfCards = fetch(this.state.nextUrl)
       .then((response) => response.json())
       .then((data) => {
         this.setState((state, props) => {
@@ -91,48 +102,57 @@ class AnimationList extends React.Component<
             nextUrl: data.next,
           };
         });
-
         data.results.map((item) => {
           fetch(item.url)
             .then((response) => response.json())
             .then((data) => {
-              setInterval(() => {
-                this.setState((state, props) => {
-                  //  console.log( this.state.AnimationData);
+              this.setState((state, props) => {
+                //  console.log( this.state.AnimationData);
 
-                  newArr.push(data);
-                  let uniqueChars = this.state.AnimationData.filter(
-                    (element, index) => {
-                      return (
-                        this.state.AnimationData.indexOf(element + 1) === index
-                      );
-                    }
-                  );
-                  const AnimationDataa = [...uniqueChars, ...newArr];
-                  /** Miszanie obiektów tablicy z objektami animacji */
-                  if (AnimationDataa.length == 16) {
-                    console.log(AnimationDataa);
-
-                    const AnimationData = arrayShuffle(AnimationDataa);
-                    /** Usunięcie pozostałych elementów z tablicy */
-                    AnimationData.splice(9, 15);
-                    console.log(AnimationData);
-
-                    return {
-                      AnimationData,
-                      loading: false,
-                      refresh: true,
-                    };
-                  } else {
-                    console.log('AN', AnimationDataa);
-
-                    return {
-                      AnimationDataa,
-                      loading: false,
-                    };
+                newArr.push(data);
+                let uniqueChars = this.state.AnimationData.filter(
+                  (element, index) => {
+                    return (
+                      this.state.AnimationData.indexOf(element + 1) === index
+                    );
                   }
-                });
-              }, 5000);
+                );
+                let AnimationData = [];
+                const AnimationDataa = [...uniqueChars, ...newArr];
+                /** Miszanie obiektów tablicy z objektami animacji */
+                if (AnimationDataa.length == 16) {
+                  // setIntervalX(
+                  //   () => {
+                  // console.log(AnimationDataa);
+
+                  const AnimationData = arrayShuffle(AnimationDataa);
+                  /** Usunięcie pozostałych elementów z tablicy */
+
+                  AnimationData.splice(9, 15);
+                  // AnimationData.push(al);
+                  // return{ AnimationData}
+                  //   },
+                  //   1000,
+                  //   3
+                  // );
+
+                  console.log('Anima', AnimationData);
+                  // console.log(AnimationData);
+
+                  return {
+                    AnimationData,
+                    loading: false,
+                    refresh: true,
+                  };
+                } else {
+                  // console.log('AN', AnimationDataa);
+
+                  return {
+                    AnimationDataa,
+                    loading: false,
+                  };
+                }
+              });
             });
         });
       });

@@ -47,7 +47,10 @@ class App extends Component<AppProps, AppState> {
   }
 
   componentDidMount() {
+    // setInterval(() => {
     this.fetchRandomAnimation();
+    console.log(this.fetchRandomAnimation());
+    // }, 5000);
   }
 
   handleItemClick(item: any) {
