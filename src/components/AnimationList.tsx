@@ -29,19 +29,16 @@ function generateRandomAnimation(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-
 function setIntervalX(callback, delay, repetitions) {
   var x = 0;
   var intervalID = window.setInterval(function () {
+    callback();
 
-     callback();
-
-     if (++x === repetitions) {
-         window.clearInterval(intervalID);
-     }
+    if (++x === repetitions) {
+      window.clearInterval(intervalID);
+    }
   }, delay);
 }
-
 
 type AnimationListProps = {
   onItemClick: (item: any) => void;
@@ -57,52 +54,49 @@ class AnimationList extends React.Component<
   AnimationListProps,
   AnimationListState
 > {
-interval: any;
+  interval: any;
   constructor(props) {
     super(props);
     this.state = {
       AnimationData: [],
       nextUrl:
         'https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation.json',
-        loading: true,
+      loading: true,
+      refresh: false,
     };
   }
 
   getAnimationDataList() {
-
     return this.state.AnimationData;
   }
 
   componentDidMount() {
-     this.interval = setIntervalX(() => {
     this.fetchAnimationListData();
-    },1000,5);
-  }
-  componentWillUnmount() {
-    clearInterval(this.interval);
   }
 
   fetchAnimationListData() {
     this.setState((state, props) => {
       return {
         loading: true,
+        refresh: false,
       };
     });
     let newArr = [];
-    setInterval(() => {
-      fetch(this.state.nextUrl)
-        .then((response) => response.json())
-        .then((data) => {
-          this.setState((state, props) => {
-            return {
-              nextUrl: data.next,
-            };
-          });
 
-          data.results.map((item) => {
-            fetch(item.url)
-              .then((response) => response.json())
-              .then((data) => {
+    fetch(this.state.nextUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState((state, props) => {
+          return {
+            nextUrl: data.next,
+          };
+        });
+
+        data.results.map((item) => {
+          fetch(item.url)
+            .then((response) => response.json())
+            .then((data) => {
+              setInterval(() => {
                 this.setState((state, props) => {
                   //  console.log( this.state.AnimationData);
 
@@ -118,13 +112,16 @@ interval: any;
                   /** Miszanie obiektów tablicy z objektami animacji */
                   if (AnimationDataa.length == 16) {
                     console.log(AnimationDataa);
+
                     const AnimationData = arrayShuffle(AnimationDataa);
                     /** Usunięcie pozostałych elementów z tablicy */
                     AnimationData.splice(9, 15);
                     console.log(AnimationData);
+
                     return {
                       AnimationData,
                       loading: false,
+                      refresh: true,
                     };
                   } else {
                     console.log('AN', AnimationDataa);
@@ -135,10 +132,10 @@ interval: any;
                     };
                   }
                 });
-              });
-          });
+              }, 5000);
+            });
         });
-    }, 3000);
+      });
   }
   render() {
     return (
@@ -194,9 +191,9 @@ interval: any;
 }
 const AnimationListRow = styled.div`
   display: grid;
-  grid-gap: 2rem;
+  grid-gap: 3.5rem;
   grid-template-columns: repeat(3, 1fr);
-  padding: 3rem;
+  padding: 4rem;
   text-align: -webkit-center;
    `;
 const CardContainer = styled.div`
