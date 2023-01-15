@@ -8,7 +8,7 @@ let time_step = 0.03;
 // time_counter  jest obliczany jako czas, w którym kulka osiągnęła górną pozycję
 // to jest po prostu obliczane za pomocą wzoru s = (1/2)gt*t, co ma miejsce w przypadku upuszczenia piłki z górnej pozycji
 //od góry do dołu
-let time_counter = Math.sqrt((bounce_distance * 2) / acceleration);
+let time_counter = Math.sqrt((-bounce_distance * 2) / -acceleration);
 
 //od dołu do góry
 // let time_counter = Math.sqrt((bounce_distance * 2) / acceleration);
