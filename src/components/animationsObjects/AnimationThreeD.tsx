@@ -8,7 +8,7 @@ let time_step = 0.03;
 // time_counter  jest obliczany jako czas, w którym kulka osiągnęła górną pozycję
 // to jest po prostu obliczane za pomocą wzoru s = (1/2)gt*t, co ma miejsce w przypadku upuszczenia piłki z górnej pozycji
 //od góry do dołu
-let time_counter = Math.sqrt((-bounce_distance * 2) / -acceleration);
+let time_counter = Math.sqrt((bounce_distance * 2) / acceleration);
 
 //od dołu do góry
 // let time_counter = Math.sqrt((bounce_distance * 2) / acceleration);
@@ -29,16 +29,29 @@ function Box(props) {
 
   scene.background = texture;
   useFrame(() => {
-    if (mesh.current.position.y < bottom_position_y) {
-      time_counter = 0;
+    if (num % 2) {
+      if (mesh.current.position.x < bottom_position_y) {
+        time_counter = 0;
+      }
+      // console.log(mesh.current.position.y);
+      mesh.current.position.x =
+        bottom_position_y +
+        initial_speed * time_counter -
+        0.5 * acceleration * time_counter * time_counter;
+      // advance time
+      time_counter += time_step;
+    } else {
+      if (mesh.current.position.y < bottom_position_y) {
+        time_counter = 0;
+      }
+      // console.log(mesh.current.position.y);
+      mesh.current.position.y =
+        bottom_position_y +
+        initial_speed * time_counter -
+        0.5 * acceleration * time_counter * time_counter;
+      // advance time
+      time_counter += time_step;
     }
-    // console.log(mesh.current.position.y);
-    mesh.current.position.y =
-      bottom_position_y +
-      initial_speed * time_counter -
-      0.5 * acceleration * time_counter * time_counter;
-    // advance time
-    time_counter += time_step;
   });
   return (
     <mesh {...props} ref={mesh}>
