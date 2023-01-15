@@ -70,14 +70,12 @@ class AnimationList extends React.Component<
     return this.state.AnimationData;
   }
 
-  async componentDidMount() {
-    
-      for (let i = 0; i < 3; i++) {
-        setInterval(() => {
+  componentDidMount() {
+    for (let i = 0; i < 3; i++) {
+      setTimeout(() => {
         this.fetchAnimationListData();
-      }, 10000)
-      }
-    
+      }, 5000);
+    }
 
     //  5000);
   }
@@ -117,7 +115,6 @@ class AnimationList extends React.Component<
                     );
                   }
                 );
-                let AnimationData = [];
                 const AnimationDataa = [...uniqueChars, ...newArr];
                 /** Miszanie obiektów tablicy z objektami animacji */
                 if (AnimationDataa.length == 16) {
@@ -169,13 +166,14 @@ class AnimationList extends React.Component<
               >
                 <CardContainer>
                   <div className="card">
-                    <RandomImage className="card" num={item.order} />
-                    {/* <Canvas camera={{ position: [0, 0, 5] }}>
+                    {/* <RandomImage className="card" num={item.order} /> */}
+                    <Canvas camera={{ position: [0, 0, 5] }}>
                       <color attach="background" args={['#beb8b8']} />
                       <ambientLight intensity={1} />
                       <pointLight position={[40, 40, 40]} />
+
                       <Box castShadow position={[0, 0, 0]} />
-                    </Canvas> */}
+                    </Canvas>
                   </div>
                   {/* <div className="card ball-bouncing">
           <div className="ball"></div>
