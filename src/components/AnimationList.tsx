@@ -194,7 +194,11 @@ class AnimationList extends React.Component<
                   </div>
                   <div className="card">
                     {/* <RandomImage num={item.order} /> */}
-                    <div className={true ? 'ball-bouncing' : 'ball-movement'}>
+                    <div
+                      className={
+                        Math.random() ? 'ball-bouncing' : 'ball-movement'
+                      }
+                    >
                       <div className="ball"></div>
                     </div>
                   </div>
