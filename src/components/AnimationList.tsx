@@ -71,11 +71,20 @@ class AnimationList extends React.Component<
   }
 
   componentDidMount() {
-    for (let i = 0; i < 3; i++) {
+    setTimeout(() => {
+      console.log('First timeout executed');
+      this.fetchAnimationListData();
+
       setTimeout(() => {
+        console.log('Second timeout executed');
         this.fetchAnimationListData();
-      }, 5000);
-    }
+
+        setTimeout(() => {
+          console.log('Third timeout executed');
+          this.fetchAnimationListData();
+        }, 10000);
+      }, 10000);
+    }, 10000);
 
     //  5000);
   }
