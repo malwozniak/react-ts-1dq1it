@@ -24,6 +24,7 @@ function RandomImage(props) {
 
   return <img style={style} alt="" />;
 }
+0;
 /** Function generate Random Number of Cards  */
 function generateRandomAnimation(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -174,20 +175,20 @@ class AnimationList extends React.Component<
                 key={item.name}
               >
                 <CardContainer>
-                  <div className="card">
-                    {/* <RandomImage className="card" num={item.order} /> */}
-                    <Canvas camera={{ position: [0, 0, 5] }}>
+                  {/* <div className="card"> */}
+                  {/* <RandomImage className="card" num={item.order} /> */}
+                  {/* <Canvas camera={{ position: [0, 0, 5] }}>
                       <color attach="background" args={['#beb8b8']} />
                       <ambientLight intensity={1} />
                       <pointLight position={[40, 40, 40]} />
 
                       <Box castShadow position={[0, 0, 0]} />
-                    </Canvas>
+                    </Canvas> */}
+                  {/* </div> */}
+                  <div className="card ball-bouncing">
+                    <div className="ball"></div>
                   </div>
-                  {/* <div className="card ball-bouncing">
-          <div className="ball"></div>
-        </div>
-                    <Canvas camera={{ position: [0, 0, 5] }}>
+                  {/*   <Canvas camera={{ position: [0, 0, 5] }}>
                       <color attach="background" args={['#beb8b8']} />
                       <ambientLight intensity={1} />
                       <pointLight position={[40, 40, 40]} />

@@ -1,7 +1,7 @@
 {
   "time": 12,
   "is_default": true,
-  "moves": [],
+  "moves": ["ball-bouncing", "ball-movement"],
   "name": "animation CSS 12s",
   "order": 7,
   "species": {
