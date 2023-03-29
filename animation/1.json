@@ -1,7 +1,7 @@
 {
   "time": 0,
   "is_default": true,
-  "moves": ["ball-bouncing", "ball-movement"],
+  "moves": [{ "name": "ball-bouncing" }, { "name": "ball-movement" }],
   "name": "animation CSS static",
   "order": 1,
   "species": {

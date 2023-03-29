@@ -1,8 +1,7 @@
 {
   "time": 8,
   "is_default": true,
-  "moves": ["ball-bouncing", "ball-movement"],
-  "name": "animation CSS 8s",
+  "moves": [{ "name": "ball-bouncing" }, { "name": "ball-movement" }],  "name": "animation CSS 8s",
   "order": 5,
   "species": {
     "id": 5,

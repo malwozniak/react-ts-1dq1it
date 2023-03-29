@@ -1,7 +1,7 @@
 {
   "time": 10,
   "is_default": true,
-  "moves": ["ball-bouncing", "ball-movement"],
+  "moves": [{ "name": "ball-bouncing" }, { "name": "ball-movement" }],
   "name": "animation CSS 10s",
   "order": 6,
   "species": {
