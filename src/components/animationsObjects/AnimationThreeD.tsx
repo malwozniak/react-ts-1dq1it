@@ -1,10 +1,10 @@
 import React, { useRef, useState } from 'react';
 import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
-let acceleration = 0.5;
+let acceleration = 0.05;
 let bounce_distance = 2;
 let bottom_position_y = 0;
-let time_step = 0.03;
+let time_step = 0.1;
 // time_counter  jest obliczany jako czas, w którym kulka osiągnęła górną pozycję
 // to jest po prostu obliczane za pomocą wzoru s = (1/2)gt*t, co ma miejsce w przypadku upuszczenia piłki z górnej pozycji
 //od góry do dołu

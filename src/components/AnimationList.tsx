@@ -2,7 +2,7 @@
  * Utworzenie komponentu z  macierzą wyświtlającą obiekty z animacjami
  */
 
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { Animation } from '../types/animation';
 import styled from 'styled-components';
 import './animationsObjects/AnimationMotion.css';
@@ -25,6 +25,7 @@ function RandomImage(props) {
   return <img style={style} alt="" />;
 }
 0;
+
 /** Function generate Random Number of Cards  */
 function generateRandomAnimation(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -72,7 +73,7 @@ class AnimationList extends React.Component<
   }
 
   componentDidMount() {
-    setTimeout(() => {
+    const timerId = setTimeout(() => {
       console.log('First timeout executed');
       this.fetchAnimationListData();
 
@@ -86,10 +87,12 @@ class AnimationList extends React.Component<
         }, 10000);
       }, 10000);
     }, 10000);
-
+    this.setState({ timerId });
     //  5000);
   }
-
+  componentWillUnmount() {
+    clearTimeout(this.state.timerId);
+  }
   // componentWillUnmount() {
   //   clearInterval(this.interval);
   // }
@@ -102,6 +105,7 @@ class AnimationList extends React.Component<
       };
     });
     let newArr = [];
+
     const ListOfCards = fetch(this.state.nextUrl)
       .then((response) => response.json())
       .then((data) => {
@@ -164,29 +168,35 @@ class AnimationList extends React.Component<
         });
       });
   }
+
   render() {
     return (
       <AnimationListContainer>
         <AnimationListRow>
           {this.getAnimationDataList().map((item) => {
+            // console.log(item.moves[0] ? item.moves[0] : 'ball-movement');
+
             return (
               <AnimationListBox
                 onClick={(e) => this.handleItemClick(item, e)}
                 key={item.name}
               >
                 <CardContainer>
-                  {/* <div className="card"> */}
-                  {/* <RandomImage className="card" num={item.order} /> */}
-                  {/* <Canvas camera={{ position: [0, 0, 5] }}>
+                  <div className="card">
+                    {/* <RandomImage className="card" num={item.order} /> */}
+                    <Canvas camera={{ position: [0, 0, 5] }}>
                       <color attach="background" args={['#beb8b8']} />
                       <ambientLight intensity={1} />
                       <pointLight position={[40, 40, 40]} />
 
                       <Box castShadow position={[0, 0, 0]} />
-                    </Canvas> */}
-                  {/* </div> */}
-                  <div className="card ball-bouncing">
-                    <div className="ball"></div>
+                    </Canvas>
+                  </div>
+                  <div className="card">
+                    {/* <RandomImage num={item.order} /> */}
+                    <div className={true ? 'ball-bouncing' : 'ball-movement'}>
+                      <div className="ball"></div>
+                    </div>
                   </div>
                   {/*   <Canvas camera={{ position: [0, 0, 5] }}>
                       <color attach="background" args={['#beb8b8']} />

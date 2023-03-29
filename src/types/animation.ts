@@ -2,6 +2,7 @@ export interface Animation {
   id: number;
   name: string;
   time: number;
+  moves: AnimationMoves[];
   sprites: AnimationSprites;
   species: AnimationSpecies;
   types: AnimationTypeItem[];
@@ -17,6 +18,9 @@ export interface AnimationSpecies {
   url: string;
 }
 
+export interface AnimationMoves {
+  name: string;
+}
 export interface AnimationSprites {
   animation_base: string;
 }
