@@ -76,7 +76,7 @@ class AnimationList extends React.Component<
       AnimationData: [],
       nextUrl:
         'https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation.json',
-      loading: true,
+      isLoaded: false,
       refresh: false,
     };
   }
@@ -100,7 +100,7 @@ class AnimationList extends React.Component<
         }, 10000);
       }, 10000);
     }, 10000);
-    this.setState({ timerId });
+    this.setState({ timerId, isLoaded: true });
     //  5000);
   }
   componentWillUnmount() {
@@ -194,26 +194,27 @@ class AnimationList extends React.Component<
                 onClick={(e) => this.handleItemClick(item, e)}
                 key={item.name}
               >
-                <CardContainer>
-                  <div className="card">
-                    {/* <RandomImage className="card" num={item.order} /> */}
-                    {
-                      this.components[
-                        Math.round(Math.random() * this.components.length)
-                      ]
-                    }
-                  </div>
-                  {/* <div className="card"> */}
-                  {/* <RandomImage num={item.order} /> */}
+                {this.state.isLoaded ? (
+                  <CardContainer>
+                    <div className="card">
+                      {/* <RandomImage className="card" num={item.order} /> */}
+                      {this.components[Math.round(Math.random() * 1)]}
+                    </div>
+                    {/* <div className="card"> */}
+                    {/* <RandomImage num={item.order} /> */}
 
-                  {/* </div> */}
-                  {/*   <Canvas camera={{ position: [0, 0, 5] }}>
+                    {/* </div> */}
+                    {/*   <Canvas camera={{ position: [0, 0, 5] }}>
                       <color attach="background" args={['#beb8b8']} />
                       <ambientLight intensity={1} />
                       <pointLight position={[40, 40, 40]} />
                       <Box castShadow position={[0, 0, 0]} />
                     </Canvas> */}
-                </CardContainer>
+                  </CardContainer>
+                ) : (
+                  // Render loading message or spinner
+                  <p>Loading 3D object...</p>
+                )}
               </AnimationListBox>
             );
           })}
