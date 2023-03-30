@@ -68,7 +68,10 @@ class AnimationList extends React.Component<
 
         <Box castShadow position={[0, 0, 0]} />
       </Canvas>,
-      <div className={Math.random() ? 'ball-bouncing' : 'ball-movement'}>
+      <div className="ball-movement">
+        <div className="ball"></div>
+      </div>,
+      <div className="ball-bouncing">
         <div className="ball"></div>
       </div>,
     ];
