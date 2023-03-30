@@ -57,8 +57,21 @@ class AnimationList extends React.Component<
   AnimationListState
 > {
   interval: any;
+  components: JSX.Element[];
   constructor(props) {
     super(props);
+    this.components = [
+      <Canvas camera={{ position: [0, 0, 5] }}>
+        <color attach="background" args={['#beb8b8']} />
+        <ambientLight intensity={1} />
+        <pointLight position={[40, 40, 40]} />
+
+        <Box castShadow position={[0, 0, 0]} />
+      </Canvas>,
+      <div className={Math.random() ? 'ball-bouncing' : 'ball-movement'}>
+        <div className="ball"></div>
+      </div>,
+    ];
     this.state = {
       AnimationData: [],
       nextUrl:
@@ -184,24 +197,16 @@ class AnimationList extends React.Component<
                 <CardContainer>
                   <div className="card">
                     {/* <RandomImage className="card" num={item.order} /> */}
-                    <Canvas camera={{ position: [0, 0, 5] }}>
-                      <color attach="background" args={['#beb8b8']} />
-                      <ambientLight intensity={1} />
-                      <pointLight position={[40, 40, 40]} />
+                    {
+                      this.components[
+                        Math.round(Math.random() * this.components.length)
+                      ]
+                    }
+                  </div>
+                  {/* <div className="card"> */}
+                  {/* <RandomImage num={item.order} /> */}
 
-                      <Box castShadow position={[0, 0, 0]} />
-                    </Canvas>
-                  </div>
-                  <div className="card">
-                    {/* <RandomImage num={item.order} /> */}
-                    <div
-                      className={
-                        Math.random() ? 'ball-bouncing' : 'ball-movement'
-                      }
-                    >
-                      <div className="ball"></div>
-                    </div>
-                  </div>
+                  {/* </div> */}
                   {/*   <Canvas camera={{ position: [0, 0, 5] }}>
                       <color attach="background" args={['#beb8b8']} />
                       <ambientLight intensity={1} />
