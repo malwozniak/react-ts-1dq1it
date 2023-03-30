@@ -1,8 +1,4 @@
-# MODEL SYSTEMU DO BADANIA EFEKTYWNOŚCI ANIMACJI
-
-WEBOWYCH -
-MODEL OF SYSTEM FOR TESTING THE EFFECTIVENESS OF WEB
-ANIMATIONS
+# MODEL SYSTEMU DO BADANIA EFEKTYWNOŚCI ANIMACJI WEBOWYCH - MODEL OF SYSTEM FOR TESTING THE EFFECTIVENESS OF WEB ANIMATIONS
 
 # Określenie celów badania
 
@@ -27,13 +23,21 @@ Animacje, które przyciągają uwagę użytkownika poprzez kierowanie go w okre�
 Głównym celem badanie jest reakcja, skupienie użytkownika oraz przyciągnięcie uwagi badanej osoby poprzez szybkość oraz kierunek animacji zawartej w określonej sekcji aplikacji webowej.
 Głównymi wskaźnikami, które mierzą efektywność animacji, są:
 
-Czas ładowania strony - animacje, które powodują zbyt długi czas ładowania strony, mogą negatywnie wpłynąć na doświadczenie użytkownika. Dlatego ważne jest, aby pamiętać o optymalizacji animacji pod kątem szybkości ładowania strony.
+## Czas ładowania strony
 
-Częstotliwość użycia - zbyt częste użycie animacji na stronie internetowej może powodować, że użytkownik stanie się niewrażliwy na ich efekt, a nawet może to wpłynąć na negatywnie na korzystanie z serwisu. Dlatego ważne jest, aby umiejętnie dobierać rodzaj i częstotliwość animacji na stronie.
+Animacje, które powodują zbyt długi czas ładowania strony, mogą negatywnie wpłynąć na doświadczenie użytkownika. Dlatego ważne jest, aby pamiętać o optymalizacji animacji pod kątem szybkości ładowania strony.
 
-Konwersja - animacje, które pomagają przyciągnąć uwagę użytkownika na określony element lub zachęcają go do wykonania określonej akcji. Mogą pozytywnie wpłynąć na konwersję i sprzedaż.
+## Częstotliwość użycia
 
-Zaangażowanie użytkownika - animacje, które są estetycznie wykonane i odpowiednio dopasowane do treści na stronie internetowej, mogą pomóc zwiększyć zaangażowanie użytkowników i zachęcić ich do dalszego korzystania z serwisu.
+Zbyt częste użycie animacji na stronie internetowej może powodować, że użytkownik stanie się niewrażliwy na ich efekt, a nawet może to wpłynąć na negatywnie na korzystanie z serwisu. Dlatego ważne jest, aby umiejętnie dobierać rodzaj i częstotliwość animacji na stronie.
+
+## Konwersja
+
+Animacje, które pomagają przyciągnąć uwagę użytkownika na określony element lub zachęcają go do wykonania określonej akcji. Mogą pozytywnie wpłynąć na konwersję i sprzedaż.
+
+## Zaangażowanie użytkownika
+
+Animacje, które są estetycznie wykonane i odpowiednio dopasowane do treści na stronie internetowej, mogą pomóc zwiększyć zaangażowanie użytkowników i zachęcić ich do dalszego korzystania z serwisu.
 
 # Określenie warunków testowych
 
