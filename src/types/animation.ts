@@ -29,3 +29,8 @@ export interface AnimationTypeItem {
   slot: number;
   type: AnimationType;
 }
+
+export interface Point {
+  x: number;
+  y: number;
+}
