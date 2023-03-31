@@ -11,20 +11,6 @@ const items = [
   </div>,
 ];
 
-/** Function generate Random Images */
-function RandomImage(props) {
-  const style = {
-    width: `${100}%`,
-    height: `${100}%`,
-    display: 'inline-block',
-    backgroundImage: `url(https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/textures/img${props.num}.jpg)`,
-    transition: 'background-image 1s ease-in-out',
-    backgroundSize: `${100}%`,
-  };
-  // console.log(props.num);
-
-  return <img style={style} alt="" />;
-}
 
 export default function AnimationMotion() {
   return (
