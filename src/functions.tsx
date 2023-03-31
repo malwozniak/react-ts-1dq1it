@@ -49,9 +49,8 @@ export function RandomImage(props) {
   return <img style={style} alt="" />;
 }
 
-export  function getRandomNumber(min: number, max: number): number {
+export function getRandomNumber(min: number, max: number): number {
   const num: number = Math.floor(Math.random() * (max - min + 1) + min);
-  console.log(num);
   return num;
 }
 

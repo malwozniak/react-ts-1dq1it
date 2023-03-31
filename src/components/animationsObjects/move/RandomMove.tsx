@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Point } from '../../../types/animation';
-import {generateRandomAnimation,getDistance,getRandomNumber,RandomImage} from '../../../functions';
-import React=require('react');
+import {
+  generateRandomAnimation,
+  getDistance,
+  getRandomNumber,
+  RandomImage,
+} from '../../../functions';
+import React = require('react');
 import './RandomMove.css';
 import '../AnimationMotion.css';
 
@@ -39,11 +44,10 @@ function RandomMove(): JSX.Element {
 
       const animation = ballr.animate(keyframes, options);
 
-    //   // Update state with the latest animation styles
-    //   animation.addEventListener('finish', () => {
-    //     setStyle({ ...style, ...animation.effect?.getComputedStyles()?.[0] });
-    //   });
-    
+      // Update state with the latest animation styles
+      animation.addEventListener('finish', () => {
+        setStyle({ ...style, ...animation.effect?.getComputedStyles()?.[0] });
+      });
     }
 
     moveBall();
@@ -55,7 +59,6 @@ function RandomMove(): JSX.Element {
       <div className="ballr" style={style}></div>
     </div>
   );
-
-  }
+}
 
 export default RandomMove;
