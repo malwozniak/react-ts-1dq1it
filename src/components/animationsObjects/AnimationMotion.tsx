@@ -43,7 +43,7 @@ export default function AnimationMotion() {
         </div>
       </div> */}
       <RandomImage num={generateRandomAnimation(1, 15)} />
-
+      {items[Math.round(Math.random() * 1)]}
       {/* <div className="card counter"></div>
 
       <div className="card text-movement"></div> */}
