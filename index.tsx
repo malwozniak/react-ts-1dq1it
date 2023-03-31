@@ -34,7 +34,7 @@ class App extends Component<AppProps, AppState> {
     'https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation/';
 
   async fetchRandomAnimation() {
-    const apiCall = await fetch(this.apiBasePath + num + '.json');
+    const apiCall = await fetch(this.apiBasePath + '1.json');
     const data = await apiCall.json();
     fetch(data).then((res) => res.json());
 
@@ -49,7 +49,7 @@ class App extends Component<AppProps, AppState> {
   componentDidMount() {
     // setInterval(() => {
     this.fetchRandomAnimation();
-    //console.log(this.fetchRandomAnimation());
+    // console.log(this.fetchRandomAnimation());
     // }, 5000);
   }
 

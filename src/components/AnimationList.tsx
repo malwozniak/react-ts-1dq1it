@@ -10,6 +10,7 @@ import { Canvas } from '@react-three/fiber';
 import Box from './animationsObjects/AnimationThreeD';
 import arrayShuffle from 'array-shuffle';
 import AnimationMotion from './animationsObjects/AnimationMotion';
+import { setIntervalX } from '../functions';
 
 type AnimationListProps = {
   onItemClick: (item: any) => void;
@@ -56,20 +57,14 @@ class AnimationList extends React.Component<
   }
 
   componentDidMount() {
-    const timerId = setTimeout(() => {
-      console.log('First timeout executed');
-      this.fetchAnimationListData();
-
-      setTimeout(() => {
-        console.log('Second timeout executed');
+    const timerId = setIntervalX(
+      () => {
+        // console.log('First timeout executed');
         this.fetchAnimationListData();
-
-        setTimeout(() => {
-          console.log('Third timeout executed');
-          this.fetchAnimationListData();
-        }, 10000);
-      }, 10000);
-    }, 10000);
+      },
+      10000,
+      4
+    );
     this.setState({ timerId });
     //  5000);
   }
@@ -156,7 +151,7 @@ class AnimationList extends React.Component<
     return (
       <AnimationListContainer>
         <AnimationListRow>
-          {this.getAnimationDataList().map((item) => {
+          {this.getAnimationDataList().map((item, index) => {
             return (
               <AnimationListBox
                 onClick={(e) => this.handleItemClick(item, e)}

@@ -6,20 +6,20 @@ import RandomMove from './move/RandomMove';
 
 export default function AnimationMotion() {
   const [items, setItems] = useState([
-    <div className="card ball-bouncing">
+    <div className="card ball-bouncing" key="ball-up">
       <RandomImage num={generateRandomAnimation(1, 16)} />
       <div className="ball"></div>
     </div>,
-    <RandomMove />,
-    <div className="card ball-bouncing-down">
+    // <RandomMove key="ball-random" />,
+    <div className="card ball-bouncing-down" key="ball-down">
       <RandomImage num={generateRandomAnimation(1, 16)} />
       <div className="ball"></div>
     </div>,
-    <div className="card ball-bouncing-left">
+    <div className="card ball-bouncing-left" key="ball-left">
       <RandomImage num={generateRandomAnimation(1, 16)} />
       <div className="ball"></div>
     </div>,
-    <div className="card ball-bouncing-right">
+    <div className="card ball-bouncing-right" key="ball-right">
       <RandomImage num={generateRandomAnimation(1, 16)} />
       <div className="ball"></div>
     </div>,
