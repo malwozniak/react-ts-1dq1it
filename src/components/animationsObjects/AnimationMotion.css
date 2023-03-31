@@ -1,6 +1,6 @@
 :root {
-  --alabaster: hsla(0, 0%, 98%, 0.425);
-  --gray-card: #808080;
+  --alabaster: gray;
+  --gray-card: #888888;
   --white: #fff;
 }
 
@@ -145,7 +145,7 @@ body {
 /* End square */
 
 /* Ball bouncing */
-
+/* 
 .ball-bouncing::before {
   animation: shadowBouncing 1.2s ease-in infinite;
   background-color: rgba(0, 0, 0, 0.2);
@@ -155,30 +155,35 @@ body {
   height: 0.15rem;
   position: absolute;
   width: 2rem;
-}
+} */
 
 .ball-bouncing .ball {
   animation: ballBouncing 1.2s ease-in infinite;
-  bottom: 1.8rem;
+  bottom: 4.5rem;
+  left: 3.5rem;
   transform-origin: bottom;
 }
 
 @keyframes ballBouncing {
-  0%,
-  100% {
-    transform: scale(1.5, 0.5);
+  0% {
+    transform: translateY(0);
   }
-  20% {
-    transform: scaleY(1.2);
+  10% {
+    transform: translateY(-1rem);
   }
-  40%,
-  80% {
-    transform: translateY(-3rem);
+  30% {
+    transform: translateY(-1.5rem);
+  }
+  50% {
+    transform: translateY(-2rem);
   }
   70% {
-    transform: translateY(-4rem);
+    transform: translateY(-1.5rem);
   }
   90% {
+    transform: translateY(1rem);
+  }
+  100% {
     transform: translateY(0);
   }
 }
