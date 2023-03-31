@@ -15,8 +15,8 @@
 body {
   min-height: 100vh;
   width: 100%;
-justify-content:center;
-  display:flex;
+  justify-content: center;
+  display: flex;
 }
 
 .card {
@@ -26,7 +26,7 @@ justify-content:center;
   position: relative;
   width: 10rem;
   background-repeat: no-repeat;
-  background-image: url("https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/textures/img1.jpg");
+  background-image: url('https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/textures/img1.jpg');
 }
 
 .ball {
@@ -37,6 +37,7 @@ justify-content:center;
   width: 3rem;
 }
 
+
 /* Ball bouncing up */
 .ball-bouncing .ball {
   animation: ballBouncing 1s ease-in infinite;
@@ -46,19 +47,24 @@ justify-content:center;
 }
 
 @keyframes ballBouncing {
-   0%,100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
-  10%, 90% {
+  10%,
+  90% {
     transform: translateY(-0.7rem);
   }
-  20%, 80% {
+  20%,
+  80% {
     transform: translateY(-1.4rem);
   }
-  30%,70% {
+  30%,
+  70% {
     transform: translateY(-2.1rem);
   }
-  40%, 60% {
+  40%,
+  60% {
     transform: translateY(-2.8rem);
   }
   50% {
@@ -76,29 +82,32 @@ justify-content:center;
 }
 
 @keyframes ballBouncingDown {
-  0%,100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
-  10%, 90% {
+  10%,
+  90% {
     transform: translateY(0.7rem);
   }
-  20%, 80% {
+  20%,
+  80% {
     transform: translateY(1.4rem);
   }
-  30%,70% {
+  30%,
+  70% {
     transform: translateY(2.1rem);
   }
-  40%, 60% {
+  40%,
+  60% {
     transform: translateY(2.8rem);
   }
   50% {
     transform: translateY(3.5rem);
   }
- 
 }
 
 /* End ball bouncing down */
-
 
 /* Ball bouncing up */
 .ball-bouncing-left .ball {
@@ -109,19 +118,24 @@ justify-content:center;
 }
 
 @keyframes ballBouncingLeft {
-   0%,100% {
+  0%,
+  100% {
     transform: translateX(0);
   }
-  10%, 90% {
+  10%,
+  90% {
     transform: translateX(-0.7rem);
   }
-  20%, 80% {
+  20%,
+  80% {
     transform: translateX(-1.4rem);
   }
-  30%,70% {
+  30%,
+  70% {
     transform: translateX(-2.1rem);
   }
-  40%, 60% {
+  40%,
+  60% {
     transform: translateX(-2.8rem);
   }
   50% {
@@ -139,73 +153,29 @@ justify-content:center;
 }
 
 @keyframes ballBouncingRight {
-  0%,100% {
+  0%,
+  100% {
     transform: translateX(0);
   }
-  10%, 90% {
+  10%,
+  90% {
     transform: translateX(0.7rem);
   }
-  20%, 80% {
+  20%,
+  80% {
     transform: translateX(1.4rem);
   }
-  30%,70% {
+  30%,
+  70% {
     transform: translateX(2.1rem);
   }
-  40%, 60% {
+  40%,
+  60% {
     transform: translateX(2.8rem);
   }
   50% {
     transform: translateX(3.5rem);
   }
- 
 }
 
 /* End ball bouncing right */
-
-
-/* Random Ball movement */
-.ball-movement {
-  overflow: hidden;
-}
-
-.ball-movement::before {
-  border-radius: 1rem;
-  bottom: 2rem;
-  content: '';
-  height: 0.15rem;
-  left: 2rem;
-  position: absolute;
-  right: 2rem;
-}
-
-.ball-movement .ball {
-  animation: ballMovement 1.6s infinite;
-  bottom: 2.1rem;
-  transform: translate(14rem, -15rem) scale(1.2, 0.5);
-  transform-origin: bottom;
-}
-
-@keyframes ballMovement {
-  0% {
-    transform: translate(14rem, -5rem);
-  }
-  15% {
-    transform: translate(7rem, 0rem) scale(1.2, 0.5);
-  }
-  30% {
-    transform: translate(2rem, -5rem) scale(1, 1);
-  }
-  45% {
-    transform: translate(-2rem, 0rem) scale(1.2, 0.8);
-  }
-  60% {
-    transform: translate(-5rem, -5.5rem) scale(1, 1);
-  }
-  75% {
-    transform: translate(-8rem, 0rem) scale(1.1, 0.9);
-  }
-  100% {
-    transform: translate(-14rem, -3rem) scale(1, 1);
-  }
-}
-/* End ball movement */

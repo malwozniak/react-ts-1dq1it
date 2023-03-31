@@ -1,0 +1,25 @@
+:root {
+  --gray-card: #888888;
+  --white: #fff;
+}
+
+/* Random Ball movement */
+.ball-movement {
+  overflow: hidden;
+}
+
+/* End ball movement */
+
+.ball-movement .ballr {
+  bottom: 4rem;
+  left: 3.5rem;
+  transform-origin: bottom;
+}
+
+.ballr {
+  background-color: var(--gray-card);
+  border-radius: 50%;
+  height: 3rem;
+  position: absolute;
+  width: 3rem;
+}

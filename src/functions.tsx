@@ -1,5 +1,6 @@
 import React = require('react');
 
+import { Point } from './types/animation';
 /** Funkcja generująca randomową liczbą kart - Function generate Random Number of Cards  */
 export function generateRandomAnimation(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -46,4 +47,16 @@ export function RandomImage(props) {
   // console.log(props.num);
 
   return <img style={style} alt="" />;
+}
+
+export  function getRandomNumber(min: number, max: number): number {
+  const num: number = Math.floor(Math.random() * (max - min + 1) + min);
+  console.log(num);
+  return num;
+}
+
+export function getDistance(p1: Point, p2: Point): number {
+  const dx: number = p2.x - p1.x;
+  const dy: number = p2.y - p1.y;
+  return Math.sqrt(dx * dx + dy * dy);
 }

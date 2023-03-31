@@ -11,8 +11,6 @@ import Box from './animationsObjects/AnimationThreeD';
 import arrayShuffle from 'array-shuffle';
 import AnimationMotion from './animationsObjects/AnimationMotion';
 
-
-
 type AnimationListProps = {
   onItemClick: (item: any) => void;
 };
@@ -33,7 +31,7 @@ class AnimationList extends React.Component<
     super(props);
     this.components = [
       <Canvas camera={{ position: [0, 0, 5] }}>
-        <color attach="background" args={['#beb8b8']} />
+        <color attach="background" args={['#888888']} />
         <ambientLight intensity={1} />
         <pointLight position={[40, 40, 40]} />
 

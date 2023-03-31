@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './AnimationMotion.css';
 import { generateRandomAnimation, RandomImage } from '../../functions';
+import './move/RandomMove';
+import RandomMove from './move/RandomMove';
 
 export default function AnimationMotion() {
   const [items, setItems] = useState([
@@ -8,6 +10,7 @@ export default function AnimationMotion() {
       <RandomImage num={generateRandomAnimation(1, 16)} />
       <div className="ball"></div>
     </div>,
+    <RandomMove />,
     <div className="card ball-bouncing-down">
       <RandomImage num={generateRandomAnimation(1, 16)} />
       <div className="ball"></div>
@@ -17,10 +20,6 @@ export default function AnimationMotion() {
       <div className="ball"></div>
     </div>,
     <div className="card ball-bouncing-right">
-      <RandomImage num={generateRandomAnimation(1, 16)} />
-      <div className="ball"></div>
-    </div>,
-    <div className="card ball-movement">
       <RandomImage num={generateRandomAnimation(1, 16)} />
       <div className="ball"></div>
     </div>,
