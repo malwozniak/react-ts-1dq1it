@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber';
+import { useFrame, useThree, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 let acceleration = 0.05;
 let bounce_distance = 2;
@@ -16,9 +16,7 @@ let initial_speed = acceleration * time_counter;
 function Box(props) {
   const mesh = useRef();
   const { scene } = useThree();
-  function generateRandomAnimation(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  }
+
   var num = generateRandomAnimation(1, 15);
   let img =
     `https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/textures/img` +

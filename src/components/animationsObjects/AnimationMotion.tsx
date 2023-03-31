@@ -1,5 +1,15 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import './AnimationMotion.css';
+import { generateRandomAnimation } from '../functions';
+
+const items = [
+  <div className="card ball-bouncing">
+    <div className="ball"></div>
+  </div>,
+  <div className="card ball-movement">
+    <div className="ball"></div>
+  </div>,
+];
 
 /** Function generate Random Images */
 function RandomImage(props) {
@@ -32,12 +42,8 @@ export default function AnimationMotion() {
           </div>
         </div>
       </div> */}
-      <div className="card ball-bouncing">
-        <div className="ball"></div>
-      </div>
-      <div className="card ball-movement">
-        <div className="ball"></div>
-      </div>
+      <RandomImage num={generateRandomAnimation(1, 15)} />
+
       {/* <div className="card counter"></div>
 
       <div className="card text-movement"></div> */}

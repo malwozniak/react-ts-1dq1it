@@ -11,21 +11,7 @@ import Box from './animationsObjects/AnimationThreeD';
 import arrayShuffle from 'array-shuffle';
 import AnimationMotion from './animationsObjects/AnimationMotion';
 
-/** Funkcja generująca randomową liczbą kart - Function generate Random Number of Cards  */
-function generateRandomAnimation(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
 
-function setIntervalX(callback, delay, repetitions) {
-  var x = 0;
-  var intervalID = window.setInterval(function () {
-    callback();
-
-    if (++x === repetitions) {
-      window.clearInterval(intervalID);
-    }
-  }, delay);
-}
 
 type AnimationListProps = {
   onItemClick: (item: any) => void;
@@ -169,7 +155,6 @@ class AnimationList extends React.Component<
   }
 
   render() {
-    let numb = 0;
     return (
       <AnimationListContainer>
         <AnimationListRow>
