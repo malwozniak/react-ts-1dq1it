@@ -5,16 +5,16 @@ import { generateRandomAnimation, RandomImage } from '../../functions';
 export default function AnimationMotion() {
   const [items, setItems] = useState([
     <div className="card ball-bouncing">
-      <RandomImage num={generateRandomAnimation(0, 15)} />
+      <RandomImage num={generateRandomAnimation(1, 16)} />
       <div className="ball"></div>
     </div>,
     <div className="card ball-movement">
-      <RandomImage num={generateRandomAnimation(0, 15)} />
+      <RandomImage num={generateRandomAnimation(1, 16)} />
       <div className="ball"></div>
     </div>,
   ]);
   const [animationNum, setAnimationNum] = useState(
-    generateRandomAnimation(0, 15)
+    generateRandomAnimation(1, 16)
   );
 
   useEffect(() => {
@@ -53,3 +53,5 @@ export default function AnimationMotion() {
     </div>
   );
 }
+
+/**W tym zaktualizowanym kodzie zmienna stanu animationNum jest używana do przechowywania losowego numeru animacji, a jest zawarta w tablicy zależności hooka useEffect. Hook mapuje tablicę items i klonuje każdy element z nowym animationNum jako właściwością dla komponentu RandomImage. To zapewnia, że hook useEffect zostanie uruchomiony tylko wtedy, gdy zmienna stanu animationNum zostanie zmieniona, zapobiegając nieskończonej pętli i rozwiązując błąd. */
