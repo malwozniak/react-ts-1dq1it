@@ -8,6 +8,18 @@ export default function AnimationMotion() {
       <RandomImage num={generateRandomAnimation(1, 16)} />
       <div className="ball"></div>
     </div>,
+    <div className="card ball-bouncing-down">
+      <RandomImage num={generateRandomAnimation(1, 16)} />
+      <div className="ball"></div>
+    </div>,
+    <div className="card ball-bouncing-left">
+      <RandomImage num={generateRandomAnimation(1, 16)} />
+      <div className="ball"></div>
+    </div>,
+    <div className="card ball-bouncing-right">
+      <RandomImage num={generateRandomAnimation(1, 16)} />
+      <div className="ball"></div>
+    </div>,
     <div className="card ball-movement">
       <RandomImage num={generateRandomAnimation(1, 16)} />
       <div className="ball"></div>
@@ -45,7 +57,7 @@ export default function AnimationMotion() {
         </div>
       </div> */}
       {/* <RandomImage num={generateRandomAnimation(1, 15)} /> */}
-      {items[Math.round(Math.random() * 1)]}
+      {items[Math.round(Math.random() * 2)]}
       {/* {items[Math.round(Math.random() * 1)]} */}
       {/* <div className="card counter"></div>
 
