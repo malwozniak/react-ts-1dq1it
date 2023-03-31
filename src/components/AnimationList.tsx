@@ -9,24 +9,9 @@ import './animationsObjects/AnimationMotion.css';
 import { Canvas } from '@react-three/fiber';
 import Box from './animationsObjects/AnimationThreeD';
 import arrayShuffle from 'array-shuffle';
+import AnimationMotion from './animationsObjects/AnimationMotion';
 
-/** Function generate Random Images */
-function RandomImage(props) {
-  const style = {
-    width: `${100}%`,
-    height: `${100}%`,
-    display: 'inline-block',
-    backgroundImage: `url(https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/textures/img${props.num}.jpg)`,
-    transition: 'background-image 1s ease-in-out',
-    backgroundSize: `${100}%`,
-  };
-  // console.log(props.num);
-
-  return <img style={style} alt="" />;
-}
-0;
-
-/** Function generate Random Number of Cards  */
+/** Funkcja generująca randomową liczbą kart - Function generate Random Number of Cards  */
 function generateRandomAnimation(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
@@ -68,12 +53,10 @@ class AnimationList extends React.Component<
 
         <Box castShadow position={[0, 0, 0]} />
       </Canvas>,
-      <div className="ball-movement">
-        <div className="ball"></div>
-      </div>,
-      <div className="ball-bouncing">
-        <div className="ball"></div>
-      </div>,
+      // <div className="ball-bouncing">
+      //   <div className="ball"></div>
+      // </div>,
+      <AnimationMotion />,
     ];
     this.state = {
       AnimationData: [],
@@ -103,7 +86,7 @@ class AnimationList extends React.Component<
         }, 10000);
       }, 10000);
     }, 10000);
-    this.setState({ timerId, isLoaded: true });
+    this.setState({ timerId });
     //  5000);
   }
   componentWillUnmount() {
@@ -186,38 +169,26 @@ class AnimationList extends React.Component<
   }
 
   render() {
+    let numb = 0;
     return (
       <AnimationListContainer>
         <AnimationListRow>
           {this.getAnimationDataList().map((item) => {
-            // console.log(item.moves[0] ? item.moves[0] : 'ball-movement');
-
             return (
               <AnimationListBox
                 onClick={(e) => this.handleItemClick(item, e)}
                 key={item.name}
               >
-                {this.state.isLoaded ? (
-                  <CardContainer>
-                    <div className="card">
-                      {/* <RandomImage className="card" num={item.order} /> */}
-                      {this.components[Math.round(Math.random() * 1)]}
-                    </div>
-                    {/* <div className="card"> */}
-                    {/* <RandomImage num={item.order} /> */}
+                <CardContainer>
+                  <div className="card">
+                    {/* {console.log('COMP', this.components)} */}
+                    {/* <RandomImage className="card" num={item.order} /> */}
+                    {this.components[Math.round(Math.random() * 1)]}
+                  </div>
+                  {/* <div className="card"> */}
 
-                    {/* </div> */}
-                    {/*   <Canvas camera={{ position: [0, 0, 5] }}>
-                      <color attach="background" args={['#beb8b8']} />
-                      <ambientLight intensity={1} />
-                      <pointLight position={[40, 40, 40]} />
-                      <Box castShadow position={[0, 0, 0]} />
-                    </Canvas> */}
-                  </CardContainer>
-                ) : (
-                  // Render loading message or spinner
-                  <p>Loading 3D object...</p>
-                )}
+                  {/* </div> */}
+                </CardContainer>
               </AnimationListBox>
             );
           })}
