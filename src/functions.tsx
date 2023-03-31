@@ -34,7 +34,7 @@ export function setIntervalX(callback, delay, repetitions) {
 }
 
 /**Funkcja generująca randomowe obrazy -  Function generate Random Images */
-function RandomImage(props) {
+export function RandomImage(props) {
   const style = {
     width: `${100}%`,
     height: `${100}%`,
