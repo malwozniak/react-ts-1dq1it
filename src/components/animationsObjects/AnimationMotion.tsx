@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './AnimationMotion.css';
-import { generateRandomAnimation } from '../functions';
+import { generateRandomAnimation } from '../../functions';
 
 const items = [
   <div className="card ball-bouncing">

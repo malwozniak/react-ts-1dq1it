@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { useFrame, useThree, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
+import { generateRandomAnimation } from '../../functions';
+
 let acceleration = 0.05;
 let bounce_distance = 2;
 let bottom_position_y = 0;
