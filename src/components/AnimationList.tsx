@@ -20,6 +20,8 @@ type AnimationListState = {
   AnimationData: Animation[];
   nextUrl: string;
   loading: boolean;
+  showCards: boolean;
+  timeElapsed: number; // add a variable to track the time elapsed
 };
 
 class AnimationList extends React.Component<
@@ -47,8 +49,10 @@ class AnimationList extends React.Component<
       AnimationData: [],
       nextUrl:
         'https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/animation.json',
-      isLoaded: false,
+      loading: false,
       refresh: false,
+      showCards: false,
+      timeElapsed: 0, // add a variable to track the time elapsed
     };
   }
 
@@ -57,23 +61,30 @@ class AnimationList extends React.Component<
   }
 
   componentDidMount() {
-    const timerId = setIntervalX(
+    // set up an interval to update the state every 10 seconds
+    this.interval = setIntervalX(
       () => {
-        // console.log('First timeout executed');
+        this.setState((prevState) => ({
+          timeElapsed: prevState.timeElapsed + 1,
+          showCards: prevState.timeElapsed % 2 === 0, // show cards every other interval
+          
+        }));
         this.fetchAnimationListData();
+        if (this.state.timeElapsed >= 6) {
+          // stop after 60 seconds (6 intervals)
+          clearInterval(this.interval);
+        }
       },
       10000,
-      4
+      6
     );
-    this.setState({ timerId });
-    //  5000);
   }
+
   componentWillUnmount() {
-    clearTimeout(this.state.timerId);
+    clearInterval(this.interval); // clear the interval when the component is unmounted
   }
-  // componentWillUnmount() {
-  //   clearInterval(this.interval);
-  // }
+
+  
 
   fetchAnimationListData() {
     this.setState((state, props) => {
@@ -148,10 +159,13 @@ class AnimationList extends React.Component<
   }
 
   render() {
+    const { showCards } = this.state;
+    const cardsToShow = showCards ? this.getAnimationDataList() : [];
+
     return (
       <AnimationListContainer>
         <AnimationListRow>
-          {this.getAnimationDataList().map((item, index) => {
+          {cardsToShow.map((item, index) => {
             return (
               <AnimationListBox
                 onClick={(e) => this.handleItemClick(item, e)}
