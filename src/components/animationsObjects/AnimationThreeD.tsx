@@ -32,7 +32,7 @@ function Box(props) {
     const onContextRestored = () => {
       setContextLost(false);
     };
-
+    console.log('image', img);
     gl.domElement.addEventListener('webglcontextlost', onContextLost, false);
     gl.domElement.addEventListener(
       'webglcontextrestored',

@@ -62,29 +62,22 @@ class AnimationList extends React.Component<
 
   componentDidMount() {
     // set up an interval to update the state every 10 seconds
-    this.interval = setIntervalX(
-      () => {
-        this.setState((prevState) => ({
-          timeElapsed: prevState.timeElapsed + 1,
-          showCards: prevState.timeElapsed % 2 === 0, // show cards every other interval
-          
-        }));
-        this.fetchAnimationListData();
-        if (this.state.timeElapsed >= 6) {
-          // stop after 60 seconds (6 intervals)
-          clearInterval(this.interval);
-        }
-      },
-      10000,
-      6
-    );
+    this.interval = setInterval(() => {
+      this.setState((prevState) => ({
+        timeElapsed: prevState.timeElapsed + 1,
+        showCards: prevState.timeElapsed % 2 === 0, // show cards every other interval
+      }));
+      this.fetchAnimationListData();
+      if (this.state.timeElapsed >= 6) {
+        // stop after 60 seconds (6 intervals)
+        clearInterval(this.interval);
+      }
+    }, 10000);
   }
 
   componentWillUnmount() {
     clearInterval(this.interval); // clear the interval when the component is unmounted
   }
-
-  
 
   fetchAnimationListData() {
     this.setState((state, props) => {
@@ -95,7 +88,7 @@ class AnimationList extends React.Component<
     });
     let newArr = [];
 
-    const ListOfCards = fetch(this.state.nextUrl)
+    fetch(this.state.nextUrl)
       .then((response) => response.json())
       .then((data) => {
         this.setState((state, props) => {
@@ -105,7 +98,10 @@ class AnimationList extends React.Component<
         });
         data.results.map((item) => {
           fetch(item.url)
-            .then((response) => response.json())
+            .then((response) => {
+              console.log('Response', response); // add this line to log the response
+              return response.json();
+            })
             .then((data) => {
               this.setState((state, props) => {
                 //  console.log( this.state.AnimationData);
