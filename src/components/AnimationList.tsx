@@ -115,7 +115,7 @@ class AnimationList extends React.Component<
                   }
                 );
                 const AnimationDataa = [...uniqueChars, ...newArr];
-                /** Miszanie obiektów tablicy z objektami animacji */
+                /** Miszanie obiektów tablicy z obiektami animacji */
                 if (AnimationDataa.length == 16) {
                   // setIntervalX(
                   //   () => {
