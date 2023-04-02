@@ -31,7 +31,7 @@ class AnimationList extends React.Component<
   constructor(props) {
     super(props);
     this.components = [
-      <Canvas camera={{ position: [0, 0, 5] }}>
+      <Canvas camera={{ position: [0, 0, 5] }} key="objectThree">
         <color attach="background" args={['#888888']} />
         <ambientLight intensity={1} />
         <pointLight position={[40, 40, 40]} />
@@ -41,7 +41,7 @@ class AnimationList extends React.Component<
       // <div className="ball-bouncing">
       //   <div className="ball"></div>
       // </div>,
-      <AnimationMotion />,
+      <AnimationMotion key="objectTwo" />,
     ];
     this.state = {
       AnimationData: [],

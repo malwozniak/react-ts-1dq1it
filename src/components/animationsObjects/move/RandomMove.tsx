@@ -46,7 +46,7 @@ function RandomMove(): JSX.Element {
 
       // Update state with the latest animation styles
       animation.addEventListener('finish', () => {
-        const computedStyles = (animation.effect as any).getCurrentStyle();
+        const computedStyles = (animation.effect as any).getComputedStyles();
         setStyle({ ...style, ...computedStyles.transform });
       });
     }
