@@ -10,7 +10,10 @@ export default function AnimationMotion() {
       <RandomImage num={generateRandomAnimation(1, 16)} />
       <div className="ball"></div>
     </div>,
-    // <RandomMove key="ball-random" />,
+    <div>
+      <RandomMove key="ball-random" />
+      <div className="ballr"></div>
+    </div>,
     <div className="card ball-bouncing-down" key="ball-down">
       <RandomImage num={generateRandomAnimation(1, 16)} />
       <div className="ball"></div>
