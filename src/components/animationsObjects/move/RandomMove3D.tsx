@@ -47,7 +47,7 @@ function RandomMove3D() {
   return (
     <mesh>
       <mesh>
-        <planeGeometry args={[30, 30]} />
+        <planeGeometry args={[8, 8]} />
         <meshStandardMaterial attach="material" map={texture} />
       </mesh>
       <mesh ref={mesh}>
