@@ -4,16 +4,10 @@ export interface Animation {
   time: number;
   moves: AnimationMoves[];
   sprites: AnimationSprites;
-  species: AnimationSpecies;
   types: AnimationTypeItem[];
 }
 
 export interface AnimationType {
-  name: string;
-  url: string;
-}
-
-export interface AnimationSpecies {
   name: string;
   url: string;
 }
@@ -23,6 +17,7 @@ export interface AnimationMoves {
   distance: number;
   accelaration: number;
   speed: number;
+  points: Point[];
 }
 export interface AnimationSprites {
   animation_base: string;
@@ -36,4 +31,16 @@ export interface AnimationTypeItem {
 export interface Point {
   x: number;
   y: number;
+}
+
+export interface User {
+  id: number;
+  age: number;
+  gender: Gender;
+}
+
+enum Gender {
+  Male = 'male',
+  Female = 'female',
+  Other = 'other',
 }

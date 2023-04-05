@@ -13,7 +13,8 @@ import AnimationMotion from './animationsObjects/AnimationMotion';
 import { setIntervalX } from '../functions';
 import RandomMove from './animationsObjects/move/RandomMove';
 import RandomMove3D from './animationsObjects/move/RandomMove3D';
-
+import firebase from 'firebase/compat/app';
+import 'firebase/database';
 type AnimationListProps = {
   onItemClick: (item: any) => void;
 };
@@ -23,17 +24,39 @@ type AnimationListState = {
   nextUrl: string;
   loading: boolean;
   showCards: boolean;
-  timeElapsed: number; // add a variable to track the time elapsed
+  timeElapsed: number;
 };
+const firebaseConfig = {
+  apiKey: 'AIzaSyBP-6GE_K23DwrnCYGKCJGPnkkzqEbE_zw',
+  authDomain: 'effective-animations.firebaseapp.com',
+  projectId: 'effective-animations',
+  storageBucket: 'effective-animations.appspot.com',
+  messagingSenderId: '980018261305',
+  appId: '1:980018261305:web:d2619dace04fd4c7a98ce8',
+};
+const fr = firebase.initializeApp(firebaseConfig);
+console.log(fr)
 
+// Utworzenie referencji do bazy danych
+// Get a reference to the database
+const database = firebase.database();
 class AnimationList extends React.Component<
   AnimationListProps,
   AnimationListState
 > {
   interval: any;
   components: JSX.Element[];
+
   constructor(props) {
     super(props);
+
+    // // Get a reference to the 'animationList' path in the database
+    // const animationListRef = database.ref('animationList');
+
+    // animationListRef.once('value', (snapshot) => {
+    //   const data = snapshot.val();
+    //   console.log('Data from database:', data);
+    // });
     this.components = [
       <Canvas camera={{ position: [0, 0, 5] }} key="objectThree">
         <color attach="background" args={['#888888']} />
@@ -157,6 +180,8 @@ class AnimationList extends React.Component<
                   };
                 }
               });
+              // Save the data to Firebase
+              database.ref('animationList').push(data);
             });
         });
       });
