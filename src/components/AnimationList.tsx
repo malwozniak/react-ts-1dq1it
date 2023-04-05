@@ -46,7 +46,7 @@ class AnimationList extends React.Component<
       //   <div className="ball"></div>
       // </div>,
       <AnimationMotion key="objectTwo" />,
-      // <RandomMove />,
+      <RandomMove />,
       <Canvas camera={{ position: [0, 0, 5] }}>
         <ambientLight intensity={1} />
         <pointLight position={[40, 40, 40]} />
@@ -179,7 +179,7 @@ class AnimationList extends React.Component<
                   <div className="card">
                     {/* {console.log('COMP', this.components)} */}
                     {/* <RandomImage className="card" num={item.order} /> */}
-                    {this.components[Math.round(Math.random() * 2)]}
+                    {this.components[Math.round(Math.random() * 3)]}
                   </div>
                   {/* <div className="card"> */}
 
@@ -192,12 +192,6 @@ class AnimationList extends React.Component<
       </AnimationListContainer>
     );
   }
-  //   <div className="card ball-bouncing">
-  //   <div className="ball"></div>
-  // </div>
-  // <div className="card ball-movement">
-  //   <div className="ball"></div>
-  // </div>
 
   handleItemClick(item, event) {
     this.props.onItemClick(item);
