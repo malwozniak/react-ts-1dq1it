@@ -11,6 +11,8 @@ import Box from './animationsObjects/AnimationThreeD';
 import arrayShuffle from 'array-shuffle';
 import AnimationMotion from './animationsObjects/AnimationMotion';
 import { setIntervalX } from '../functions';
+import RandomMove from './animationsObjects/move/RandomMove';
+import RandomMove3D from './animationsObjects/move/RandomMove3D';
 
 type AnimationListProps = {
   onItemClick: (item: any) => void;
@@ -44,6 +46,12 @@ class AnimationList extends React.Component<
       //   <div className="ball"></div>
       // </div>,
       <AnimationMotion key="objectTwo" />,
+      // <RandomMove />,
+      <Canvas camera={{ position: [0, 0, 5] }}>
+        <ambientLight intensity={1} />
+        <pointLight position={[40, 40, 40]} />
+        <RandomMove3D />
+      </Canvas>,
     ];
     this.state = {
       AnimationData: [],
@@ -171,7 +179,7 @@ class AnimationList extends React.Component<
                   <div className="card">
                     {/* {console.log('COMP', this.components)} */}
                     {/* <RandomImage className="card" num={item.order} /> */}
-                    {this.components[Math.round(Math.random() * 1)]}
+                    {this.components[Math.round(Math.random() * 2)]}
                   </div>
                   {/* <div className="card"> */}
 

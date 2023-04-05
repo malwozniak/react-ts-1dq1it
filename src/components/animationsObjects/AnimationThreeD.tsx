@@ -16,7 +16,13 @@ function SphereMove(props) {
   const initial_speed = acceleration * time_counter;
 
   const num = useMemo(() => Math.floor(Math.random() * 16) + 1, []);
-  const img = useMemo(() => 'https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/textures/img' + num + '.jpg', [num]);
+  const img = useMemo(
+    () =>
+      'https://raw.githubusercontent.com/malwozniak/react-ts-1dq1it/main/textures/img' +
+      num +
+      '.jpg',
+    [num]
+  );
 
   const texturesCache = useRef({});
 
@@ -31,11 +37,23 @@ function SphereMove(props) {
     };
 
     gl.domElement.addEventListener('webglcontextlost', onContextLost, false);
-    gl.domElement.addEventListener('webglcontextrestored', onContextRestored, false);
+    gl.domElement.addEventListener(
+      'webglcontextrestored',
+      onContextRestored,
+      false
+    );
 
     return () => {
-      gl.domElement.removeEventListener('webglcontextlost', onContextLost, false);
-      gl.domElement.removeEventListener('webglcontextrestored', onContextRestored, false);
+      gl.domElement.removeEventListener(
+        'webglcontextlost',
+        onContextLost,
+        false
+      );
+      gl.domElement.removeEventListener(
+        'webglcontextrestored',
+        onContextRestored,
+        false
+      );
     };
   }, [gl]);
 
@@ -60,13 +78,19 @@ function SphereMove(props) {
       if (mesh.current.position.x < bottom_position_y) {
         time_counter = 0;
       }
-      mesh.current.position.x = bottom_position_y + initial_speed * time_counter - 0.5 * acceleration * time_counter * time_counter;
+      mesh.current.position.x =
+        bottom_position_y +
+        initial_speed * time_counter -
+        0.5 * acceleration * time_counter * time_counter;
       time_counter += time_step;
     } else {
       if (mesh.current.position.y < bottom_position_y) {
         time_counter = 0;
       }
-      mesh.current.position.y = bottom_position_y + initial_speed * time_counter - 0.5 * acceleration * time_counter * time_counter;
+      mesh.current.position.y =
+        bottom_position_y +
+        initial_speed * time_counter -
+        0.5 * acceleration * time_counter * time_counter;
       time_counter += time_step;
     }
   });
@@ -74,9 +98,15 @@ function SphereMove(props) {
   return (
     <mesh {...props} ref={mesh}>
       <sphereGeometry attach="geometry" args={[1, 16, 16]} />
-      <meshStandardMaterial attach="material" color="gray" transparent roughness={0.1} metalness={0.1} />
+      <meshStandardMaterial
+        attach="material"
+        color="gray"
+        transparent
+        roughness={0.1}
+        metalness={0.1}
+      />
     </mesh>
-  )
+  );
 }
 
 export default SphereMove;

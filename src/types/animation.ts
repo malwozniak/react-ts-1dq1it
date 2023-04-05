@@ -20,6 +20,9 @@ export interface AnimationSpecies {
 
 export interface AnimationMoves {
   name: string;
+  distance: number;
+  accelaration: number;
+  speed: number;
 }
 export interface AnimationSprites {
   animation_base: string;
