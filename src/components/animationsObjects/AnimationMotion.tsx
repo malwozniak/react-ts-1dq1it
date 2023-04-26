@@ -37,7 +37,7 @@ export default function AnimationMotion() {
         ],
       });
     });
-    setItems(newItems);
+    setItems(newItems) ;
   }, [animationNum]);
 
   return (
